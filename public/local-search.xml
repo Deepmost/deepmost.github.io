@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>关键对话-播客笔记</title>
+    <link href="/2026/05/14/%E5%85%B3%E9%94%AE%E5%AF%B9%E8%AF%9D-%E6%92%AD%E5%AE%A2%E7%AC%94%E8%AE%B0/"/>
+    <url>/2026/05/14/%E5%85%B3%E9%94%AE%E5%AF%B9%E8%AF%9D-%E6%92%AD%E5%AE%A2%E7%AC%94%E8%AE%B0/</url>
+    
+    <content type="html"><![CDATA[<h3 id="关键对话："><a href="#关键对话：" class="headerlink" title="关键对话："></a>关键对话：</h3><h5 id="对话前要想的四个问题："><a href="#对话前要想的四个问题：" class="headerlink" title="对话前要想的四个问题："></a>对话前要想的四个问题：</h5><p>一：我希望为自己实现一个什么样的目标？<br>二：我希望为对方实现一个什么样的目标？<br>三：我希望我们之间的关系实现一个什么样的目标？<br>四：我想要实现这些目标我要怎么做？</p><h5 id="观察对话是否安全："><a href="#观察对话是否安全：" class="headerlink" title="观察对话是否安全："></a>观察对话是否安全：</h5><p>一：对话是否陷入沉默，不是思考性的留白，是对抗性的沉默，或者暴力应对，识别对方的情绪很重要，需要训练捕捉情绪的能力<br>识别到对方的情绪时让对方感到安全的实操抓手：<br>1：道歉，告诉对方说我之前的某一句话，如果让你感到不尊重或被评判、被否定，我向你道歉<br>2.对比法，“不是而是”，我不是要在这个问题是否定你评判你，其实我是希望跟你表达我在这件事情上的感受，但我的用词可能不够准确<br>3.如果跑偏了，重新创建共同目的，拉回主线</p><p>对话中要识别自己有哪些想法把对话带到沉默和不安全，</p><h5 id="不可改变的事（ABC：action、belief、consequence）"><a href="#不可改变的事（ABC：action、belief、consequence）" class="headerlink" title="不可改变的事（ABC：action、belief、consequence）"></a>不可改变的事（ABC：action、belief、consequence）</h5><p>一：外部的不可改变的事是什么？<br>二：主观对这件事的判断和认知是什么？<br>三：这个判断给你带来的情绪是什么？<br>四：产生的行为是什么？</p><h5 id="倾听的时候肢体语言、语气、眼神很容易被对方pick-up，给对方造成不安全感，导致对方不想表达自己，场域下降"><a href="#倾听的时候肢体语言、语气、眼神很容易被对方pick-up，给对方造成不安全感，导致对方不想表达自己，场域下降" class="headerlink" title="倾听的时候肢体语言、语气、眼神很容易被对方pick up，给对方造成不安全感，导致对方不想表达自己，场域下降"></a>倾听的时候肢体语言、语气、眼神很容易被对方pick up，给对方造成不安全感，导致对方不想表达自己，场域下降</h5>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>AI时代-FDE工程师需要具备的能力</title>
+    <link href="/2026/05/14/AI%E6%97%B6%E4%BB%A3-FDE%E5%B7%A5%E7%A8%8B%E5%B8%88%E9%9C%80%E8%A6%81%E5%85%B7%E5%A4%87%E7%9A%84%E8%83%BD%E5%8A%9B/"/>
+    <url>/2026/05/14/AI%E6%97%B6%E4%BB%A3-FDE%E5%B7%A5%E7%A8%8B%E5%B8%88%E9%9C%80%E8%A6%81%E5%85%B7%E5%A4%87%E7%9A%84%E8%83%BD%E5%8A%9B/</url>
+    
+    <content type="html"><![CDATA[<h2 id="什么是FDE（Forward-Deployed-Engineer）"><a href="#什么是FDE（Forward-Deployed-Engineer）" class="headerlink" title="什么是FDE（Forward Deployed Engineer）"></a>什么是FDE（Forward Deployed Engineer）</h2><p>FDE（前沿部署工程师）是AI时代最热门的工程角色之一。2025年FDE岗位需求增长了800%，OpenAI、Palantir、Salesforce、Ramp等公司都在大量招聘。</p><p>FDE不是传统的后端或产品工程师，而是工作在<strong>工程与实际部署交叉点</strong>的角色：</p><ul><li>直接嵌入客户环境，写生产代码</li><li>端到端负责AI系统的发现、技术范围界定、系统设计、构建和生产上线</li><li>既是技术专家，又是业务顾问，还是客户的”手把手”引导者</li></ul><p>简单说：<strong>FDE &#x3D; 全栈工程能力 + AI技术深度 + 客户咨询能力 + 端到端交付</strong></p><hr><h2 id="开发转FDE的学习路径"><a href="#开发转FDE的学习路径" class="headerlink" title="开发转FDE的学习路径"></a>开发转FDE的学习路径</h2><h3 id="第一阶段：补齐全栈基础（1-3个月）"><a href="#第一阶段：补齐全栈基础（1-3个月）" class="headerlink" title="第一阶段：补齐全栈基础（1-3个月）"></a>第一阶段：补齐全栈基础（1-3个月）</h3><p><strong>如果你是后端开发：</strong></p><ul><li>学习一个现代前端框架（React&#x2F;Vue + TypeScript）</li><li>掌握基本的UI&#x2F;UX设计感知</li><li>了解前端部署（Vercel&#x2F;Netlify）</li></ul><p><strong>如果你是前端开发：</strong></p><ul><li>学习后端开发（Python&#x2F;Go&#x2F;Node.js）</li><li>数据库设计（PostgreSQL + Redis + 向量数据库）</li><li>API设计与微服务基础</li></ul><p><strong>通用必备：</strong></p><ul><li>Docker + Kubernetes 基础</li><li>CI&#x2F;CD 流水线搭建</li><li>云平台实操（AWS&#x2F;GCP&#x2F;Azure 至少一个）</li><li>Linux运维基础</li></ul><hr><h3 id="第二阶段：AI-LLM-技术栈（2-4个月）"><a href="#第二阶段：AI-LLM-技术栈（2-4个月）" class="headerlink" title="第二阶段：AI&#x2F;LLM 技术栈（2-4个月）"></a>第二阶段：AI&#x2F;LLM 技术栈（2-4个月）</h3><p>这是FDE区别于普通全栈的关键。</p><p><strong>基础层：</strong></p><ul><li>Prompt Engineering 系统学习（Few-shot、CoT、结构化输出）</li><li>主流模型API使用（OpenAI、Claude、开源模型）</li><li>LangChain &#x2F; LlamaIndex 等编排框架</li></ul><p><strong>应用层：</strong></p><ul><li>RAG系统搭建（文档切分、Embedding、向量检索、重排序）</li><li>AI Agent开发（工具调用、多步推理、记忆管理）</li><li>多模态应用（图像理解、语音、视频）</li></ul><p><strong>工程层：</strong></p><ul><li>模型部署（vLLM、TGI、Ollama）</li><li>推理优化（量化、缓存、批处理）</li><li>评估体系搭建（如何衡量AI系统效果）</li><li>成本控制（Token优化、模型选择策略）</li></ul><p><strong>实战项目建议：</strong></p><ul><li>搭建一个企业知识库问答系统（RAG）</li><li>开发一个多工具AI Agent</li><li>做一个端到端的AI应用（从数据处理到前端展示）</li></ul><hr><h3 id="第三阶段：系统设计能力提升（2-3个月）"><a href="#第三阶段：系统设计能力提升（2-3个月）" class="headerlink" title="第三阶段：系统设计能力提升（2-3个月）"></a>第三阶段：系统设计能力提升（2-3个月）</h3><p>FDE面试和实际工作中，系统设计是重中之重。</p><ul><li>学习经典系统设计（消息队列、缓存策略、负载均衡）</li><li>AI系统特有设计模式：<ul><li>如何设计可扩展的RAG Pipeline</li><li>如何设计多租户AI平台</li><li>如何处理AI系统的可观测性和调试</li><li>如何设计Human-in-the-loop工作流</li></ul></li><li>练习方式：每周做1-2个系统设计题，画架构图并写设计文档</li></ul><hr><h3 id="第四阶段：软技能与业务感知（持续）"><a href="#第四阶段：软技能与业务感知（持续）" class="headerlink" title="第四阶段：软技能与业务感知（持续）"></a>第四阶段：软技能与业务感知（持续）</h3><p><strong>沟通能力训练：</strong></p><ul><li>练习用5分钟向非技术人员解释一个技术方案</li><li>学习做技术Demo（录屏、现场演示）</li><li>写清晰的技术方案文档（面向客户，非面向开发）</li></ul><p><strong>沟通能力提升的具体方法：</strong></p><p><em>1. 技术表达降维训练</em></p><ul><li>每学一个新技术，尝试用”电梯演讲”方式（30秒）向非技术朋友讲清楚</li><li>练习类比法：把技术概念映射到日常生活场景（如RAG &#x3D; 开卷考试，Agent &#x3D; 有工具箱的助手）</li><li>录制自己的技术讲解视频，回看并改进语速、逻辑和表达清晰度</li></ul><p><em>2. 主动创造沟通场景</em></p><ul><li>在团队内做技术分享（每月至少1次），从小范围开始</li><li>参与开源社区讨论，练习用文字清晰表达技术观点</li><li>写技术博客，强迫自己把复杂问题讲明白</li><li>参加技术Meetup或线上直播，锻炼即兴表达</li></ul><p><em>3. 客户沟通模拟训练</em></p><ul><li>找同事角色扮演：一人当客户提需求，一人当FDE做方案讲解</li><li>练习”先听后说”：客户说完需求后，先复述确认理解，再给方案</li><li>学会说”不”的艺术：当需求不合理时，如何引导客户而非直接拒绝</li><li>练习处理模糊需求：客户说”我想要AI帮我提效”，你如何追问到具体场景</li></ul><p><em>4. 书面沟通能力</em></p><ul><li>学习写Executive Summary（一页纸讲清楚方案价值）</li><li>练习写周报&#x2F;项目汇报，突出业务成果而非技术细节</li><li>邮件沟通遵循”结论先行 + 关键依据 + 行动项”结构</li><li>技术方案文档要有”给CEO看的摘要”和”给工程师看的细节”两层</li></ul><p><em>5. 跨文化沟通（如果目标是海外FDE岗位）</em></p><ul><li>提升英语口语流利度（推荐Shadowing跟读法）</li><li>了解不同文化的沟通风格差异（直接vs委婉）</li><li>练习英文技术演讲（可从录制YouTube视频开始）</li><li>熟悉远程协作工具和异步沟通礼仪</li></ul><p><em>6. 推荐资源</em></p><ul><li>书籍：《非暴力沟通》《关键对话》《金字塔原理》</li><li>课程：Toastmasters演讲俱乐部（线下练习即兴演讲）</li><li>实践：在GitHub上参与Issue讨论，练习技术沟通的精准度</li></ul><p><strong>业务能力建设：</strong></p><ul><li>选1-2个行业深入了解（金融、医疗、电商等）</li><li>阅读行业报告，理解业务痛点</li><li>关注AI在该行业的落地案例</li></ul><p><strong>咨询思维培养：</strong></p><ul><li>学习结构化思考（金字塔原理、MECE）</li><li>练习从问题到方案的推导过程</li><li>了解项目管理基础（敏捷、交付节奏）</li></ul><hr><h3 id="第五阶段：面试准备（1-2个月）"><a href="#第五阶段：面试准备（1-2个月）" class="headerlink" title="第五阶段：面试准备（1-2个月）"></a>第五阶段：面试准备（1-2个月）</h3><p>FDE面试通常包含以下环节：</p><ol><li><strong>Coding Round</strong> — 算法 + 实际工程问题</li><li><strong>System Design</strong> — 设计一个AI系统（如：为某银行设计智能客服）</li><li><strong>Presentation&#x2F;Demo Round</strong> — 给你一个数据集，几小时内搭原型并向”客户”演示</li><li><strong>Behavioral</strong> — 讲述你如何处理模糊需求、客户冲突、技术取舍</li></ol><p><strong>准备重点：</strong></p><ul><li>LeetCode中等难度保持手感</li><li>准备3-5个系统设计案例（最好包含AI场景）</li><li>准备一个完整的Demo项目，能现场演示</li><li>准备STAR格式的行为面试故事</li></ul><hr><h2 id="FDE需要具备的核心能力"><a href="#FDE需要具备的核心能力" class="headerlink" title="FDE需要具备的核心能力"></a>FDE需要具备的核心能力</h2><table><thead><tr><th>能力维度</th><th>具体要求</th></tr></thead><tbody><tr><td>全栈工程</td><td>前后端开发、数据库、云原生、DevOps</td></tr><tr><td>AI技术深度</td><td>LLM应用、RAG、Agent、模型部署与优化</td></tr><tr><td>系统设计</td><td>大规模分布式系统、AI Pipeline架构</td></tr><tr><td>客户沟通</td><td>技术Demo、方案讲解、需求挖掘</td></tr><tr><td>业务理解</td><td>行业知识、痛点分析、ROI思维</td></tr><tr><td>快速交付</td><td>原型搭建、MVP迭代、端到端负责</td></tr></tbody></table><hr><h2 id="推荐学习资源"><a href="#推荐学习资源" class="headerlink" title="推荐学习资源"></a>推荐学习资源</h2><table><thead><tr><th>方向</th><th>资源</th></tr></thead><tbody><tr><td>AI应用开发</td><td>DeepLearning.AI短课程、OpenAI Cookbook</td></tr><tr><td>系统设计</td><td>System Design Interview (Alex Xu)、ByteByteGo</td></tr><tr><td>全栈</td><td>Full Stack Open (赫尔辛基大学)</td></tr><tr><td>沟通&#x2F;咨询</td><td>《金字塔原理》、Case in Point</td></tr><tr><td>FDE面试</td><td>Palantir&#x2F;OpenAI JD反复研读、模拟Demo练习</td></tr></tbody></table><hr><h2 id="转型时间线建议"><a href="#转型时间线建议" class="headerlink" title="转型时间线建议"></a>转型时间线建议</h2><table><thead><tr><th>阶段</th><th>时间</th><th>里程碑</th></tr></thead><tbody><tr><td>全栈补齐</td><td>1-3月</td><td>能独立搭建全栈应用</td></tr><tr><td>AI技术栈</td><td>2-4月</td><td>有2-3个AI项目作品</td></tr><tr><td>系统设计</td><td>2-3月</td><td>能完成AI系统设计面试</td></tr><tr><td>软技能</td><td>持续</td><td>能做流畅的技术Demo</td></tr><tr><td>面试冲刺</td><td>1-2月</td><td>拿到FDE Offer</td></tr></tbody></table><p>总计约 <strong>6-12个月</strong>，取决于现有基础和投入时间。</p><hr><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>AI时代最稀缺的不是写代码的人，而是能把AI技术变成客户业务价值的人。FDE正是这样的角色——既要有硬核的工程能力，又要有面向客户交付的软实力。对于有经验的开发者来说，这是一条高价值的转型路径。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>AI</tag>
+      
+      <tag>FDE</tag>
+      
+      <tag>职业发展</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>hello，这里是我的小角落</title>
+    <link href="/2026/05/13/hello-world/"/>
+    <url>/2026/05/13/hello-world/</url>
+    
+    <content type="html"><![CDATA[<p>互联网那么大，你居然找到了这里。</p><p>这是我的个人博客——一个没有算法推荐、没有信息流轰炸、没有”猜你喜欢”的地方。这里只有我想写的东西，和愿意读的你。</p><h2 id="这里会有什么？"><a href="#这里会有什么？" class="headerlink" title="这里会有什么？"></a>这里会有什么？</h2><ul><li><strong>技术笔记</strong>：踩过的坑、趟过的雷，记下来省得下次再踩</li><li><strong>随手记录</strong>：某个深夜突然想明白的事，或者某个下午突然想不明白的事</li><li><strong>折腾日志</strong>：把好好的东西拆开再装回去，顺便写篇文章</li></ul><h2 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h2><p>一个喜欢把想法变成代码、把代码变成产品的人。相信”能跑就行”是谎言，也相信”过度设计”是另一种谎言。</p><p>在这两个谎言之间，我努力找到那条刚刚好的线。</p><hr><blockquote><p>欢迎常来坐坐。如果某篇文章帮到了你，那就是它存在的意义。</p></blockquote>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>非暴力沟通-读书笔记</title>
+    <link href="/2026/05/12/%E9%9D%9E%E6%9A%B4%E5%8A%9B%E6%B2%9F%E9%80%9A-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    <url>/2026/05/12/%E9%9D%9E%E6%9A%B4%E5%8A%9B%E6%B2%9F%E9%80%9A-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</url>
+    
+    <content type="html"><![CDATA[<h3 id="金字塔原理："><a href="#金字塔原理：" class="headerlink" title="金字塔原理："></a>金字塔原理：</h3><p>练习：输入-思考-输出表达：结论-论据-细节</p><h3 id="非暴力沟通："><a href="#非暴力沟通：" class="headerlink" title="非暴力沟通："></a>非暴力沟通：</h3><p>指责一个人的缺点的时候投射的是自己未被满足的需求<br/>-表达需求，承担自己的情绪-提出需求<br/>表达感受是通往需求的唯一桥梁<br/>拒绝表达感受是对脆弱的恐惧<br/><br/>感到情绪后把感受写出来，找到背后的核心需求<br/>观察-感受-需要-请求<br/>如何发出请求-用正向的语言具体的当下能做到到的事情<br/>生气后和对方第一句话应该是以我为主语，说出我的感受，而不是指责你做了什么<br/><br/>·你不尊重我  空泛<br/>~下次说话你能听我先说完吗  具体<br/>·我想要自由<br/>～下次我说的想法你能肯定我吗<br/>表达感激要具体的话语，感受，需要<br/><br/>每天输出</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  
+</search>

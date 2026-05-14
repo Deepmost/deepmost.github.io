@@ -18,11 +18,11 @@
 
 # 用于浏览器标签的图标
 # Icon for browser tab
-favicon: /img/fluid.png
+favicon: /source/img/avatar.png
 
 # 用于苹果设备的图标
 # Icon for Apple touch
-apple_touch_icon: /img/fluid.png
+apple_touch_icon: /source/img/avatar.png
 
 # 浏览器标签页中的标题分隔符，效果：文章名 - 站点名
 # Title separator in browser tab, eg: article - site
@@ -95,7 +95,7 @@ fun_features:
 
     # 是否循环播放效果
     # If true, loop animation
-    loop: false
+    loop: true
 
     # 在指定页面开启，不填则在所有页面开启
     # Enable in specified page, all pages by default
@@ -415,7 +415,16 @@ search:
 banner:
   # 是否开启所有页面的随机头图，仅在页面对应 banner_img 为空时生效，将图片放在 source/img/random/ 目录下
   # Enable random banner for all pages, only works when banner_img is empty, put images in the directory `source/img/random/`
-  random_img: false
+  random_img: true
+
+  # 随机图片列表（手动指定，优先于目录扫描）
+  banner_img_list:
+    - /img/random/微信图片_20260514114755_15_12.jpg
+    - /img/random/微信图片_20260514114756_16_12.jpg
+    - /img/random/微信图片_20260514114758_17_12.jpg
+    - /img/random/微信图片_20260514114759_18_12.jpg
+    - /img/random/微信图片_20260514114800_19_12.jpg
+    - /img/random/微信图片_20260514114801_20_12.jpg
 
   # 视差滚动，图片与板块会随着屏幕滚动产生视差效果
   # Scrolling parallax
@@ -464,9 +473,8 @@ footer:
   # 页脚第一行文字的 HTML，建议保留 Fluid 的链接，用于向更多人推广本主题
   # HTML of the first line of the footer, it is recommended to keep the Fluid link to promote this theme to more people
   content: '
-    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Deepmost的小角落</span></a>
-    <i class="iconfont icon-love"></i>
-    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a>
+    <a href="https://deepmost.github.io" target="_blank" rel="nofollow noopener"><span>Deepmost的小角落</span></a>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>💕</span></a>
   '
 
   # 展示网站的 PV、UV 统计数
@@ -500,7 +508,7 @@ footer:
 index:
   # 首页 Banner 头图，可以是相对路径或绝对路径，以下相同
   # Path of Banner image, can be a relative path or an absolute path, the same on other pages
-  banner_img: /img/default.png
+  banner_img: /img/random/微信图片_20260514114758_17_12.jpg
 
   # 头图高度，屏幕百分比
   # Height ratio of banner image
@@ -519,7 +527,7 @@ index:
 
     # 为空则按 hexo config.subtitle 显示，支持列表格式来实现随机选择一行文字显示
     # If empty, text based on `subtitle` in hexo config, support list format to random selection of a row for display
-    text: "今日目标：读书📕"
+    text: "我做不了什么，我只能表达感恩"
 
     # 通过 API 接口作为首页副标题的内容，必须返回的是 JSON 格式，如果请求失败则按 text 字段显示，该功能必须先开启 typing 打字机功能
     # Subtitle of the homepage through the API, must be returned a JSON. If the request fails, it will be displayed in `text` value. This feature must first enable the typing animation
@@ -954,7 +962,7 @@ archive:
 # Category Page
 #---------------------------
 category:
-  enable: true
+  enable: false
   banner_img: /img/default.png
   banner_img_height: 60
   banner_mask_alpha: 0.3
@@ -983,7 +991,7 @@ category:
 # Tag Page
 #---------------------------
 tag:
-  enable: true
+  enable: false
   banner_img: /img/default.png
   banner_img_height: 80
   banner_mask_alpha: 0.3
