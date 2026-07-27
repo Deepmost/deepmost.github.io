@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Deepmost 的小角落</title>
+    <style>
+      html {
+        background: #000;
+      }
+    </style>
+    <script>
+      /*
+       * GitHub Pages has no SPA rewrite: a refresh on /vibe/blog serves this
+       * file instead of index.html. Stash the requested path in sessionStorage
+       * and bounce to the app root, where main.tsx restores it into the router.
+       *
+       * BASE must match `base` in vite.config.ts. Files in public/ are copied
+       * verbatim and never see Vite's env substitution, so it is spelled out.
+       */
+      var BASE = '/vibe/'
+      var target =
+        window.location.pathname + window.location.search + window.location.hash
+
+      // Guard against a redirect loop if BASE itself is what 404'd.
+      if (target.indexOf(BASE) === 0 && target !== BASE) {
+        sessionStorage.setItem('spa-redirect', target)
+      }
+      window.location.replace(BASE)
+    </script>
+  </head>
+  <body></body>
+</html>
