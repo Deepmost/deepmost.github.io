@@ -2,7 +2,8 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    # The React site lives on its own branch; main still holds the Hexo source.
+    branches: [react-site]
   # Allows a manual run from the Actions tab.
   workflow_dispatch:
 

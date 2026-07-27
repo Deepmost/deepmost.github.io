@@ -4,8 +4,8 @@ import { BrowserRouter } from 'react-router-dom'
 import App from './App'
 import './index.css'
 
-// '/vibe/' in production, '/' in dev. React Router wants it without the
-// trailing slash.
+// '/personal-page/' in production, '/' in dev. React Router wants it without
+// the trailing slash.
 const basename = import.meta.env.BASE_URL.replace(/\/$/, '')
 
 /*
