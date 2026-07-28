@@ -4,8 +4,8 @@ import { BrowserRouter } from 'react-router-dom'
 import App from './App'
 import './index.css'
 
-// '/personal-page/' in production, '/' in dev. React Router wants it without
-// the trailing slash.
+// The root deployment produces an empty basename after removing the trailing
+// slash, which is exactly what React Router expects for deepmost.github.io.
 const basename = import.meta.env.BASE_URL.replace(/\/$/, '')
 
 /*

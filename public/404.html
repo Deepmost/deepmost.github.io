@@ -10,14 +10,14 @@
     </style>
     <script>
       /*
-       * GitHub Pages has no SPA rewrite: a refresh on /personal-page/blog serves this
-       * file instead of index.html. Stash the requested path in sessionStorage
-       * and bounce to the app root, where main.tsx restores it into the router.
+       * GitHub Pages has no SPA rewrite: a refresh on /blog serves this file
+       * instead of index.html. Stash the requested path in sessionStorage and
+       * bounce to the app root, where main.tsx restores it into the router.
        *
        * BASE must match `base` in vite.config.ts. Files in public/ are copied
        * verbatim and never see Vite's env substitution, so it is spelled out.
        */
-      var BASE = '/personal-page/'
+      var BASE = '/'
       var target =
         window.location.pathname + window.location.search + window.location.hash
 
