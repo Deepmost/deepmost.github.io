@@ -3,14 +3,14 @@ import { useEffect, useRef, useState } from 'react'
 interface AmbientVideoProps {
   src: string
   className?: string
-  /** Shown while loading, on failure, and instead of video on small screens. */
+  /** Shown while loading, on failure, and when motion or data-saving settings disable video. */
   poster?: string
 }
 
 /**
  * Decorative background video with graceful degradation:
- *  - skipped entirely on narrow screens (mobile data) and when the OS asks for
- *    reduced motion, falling back to a static gradient/poster;
+ *  - shown on both mobile and desktop, but skipped when the OS asks for reduced
+ *    motion or the browser reports data-saving mode;
  *  - if the CDN URL ever fails, the fallback simply stays visible.
  */
 export default function AmbientVideo({ src, className = '', poster }: AmbientVideoProps) {
@@ -20,20 +20,17 @@ export default function AmbientVideo({ src, className = '', poster }: AmbientVid
 
   useEffect(() => {
     const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
-    const wideQuery = window.matchMedia('(min-width: 768px)')
 
     const saveData =
       (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData ??
       false
 
-    const update = () => setEnabled(wideQuery.matches && !motionQuery.matches && !saveData)
+    const update = () => setEnabled(!motionQuery.matches && !saveData)
 
     update()
     motionQuery.addEventListener('change', update)
-    wideQuery.addEventListener('change', update)
     return () => {
       motionQuery.removeEventListener('change', update)
-      wideQuery.removeEventListener('change', update)
     }
   }, [])
 
