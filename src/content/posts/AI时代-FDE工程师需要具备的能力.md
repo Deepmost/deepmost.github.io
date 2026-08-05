@@ -5,6 +5,7 @@ tags:
   - AI
   - FDE
   - 职业发展
+  - 播客总结
 ---
 
 ## 什么是FDE（Forward Deployed Engineer）

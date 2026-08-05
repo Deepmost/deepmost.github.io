@@ -5,8 +5,8 @@ import WordsPullUp from './WordsPullUp'
 import AmbientVideo from './AmbientVideo'
 import Navbar from './Navbar'
 
-const HERO_VIDEO =
-  'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260405_170732_8a9ccda6-5cff-4628-b164-059c500a2b41.mp4'
+const HERO_VIDEO = `${import.meta.env.BASE_URL}video/hero.mp4`
+const HERO_VIDEO_MOBILE = `${import.meta.env.BASE_URL}video/hero-mobile.mp4`
 
 const EASE = [0.16, 1, 0.3, 1] as const
 
@@ -14,7 +14,12 @@ export default function Hero() {
   return (
     <section className="h-screen w-full bg-black p-4 md:p-6">
       <div className="relative h-full w-full overflow-hidden rounded-2xl md:rounded-[2rem]">
-        <AmbientVideo src={HERO_VIDEO} poster={`${import.meta.env.BASE_URL}img/poster.jpg`} />
+        <AmbientVideo
+          src={HERO_VIDEO}
+          mobileSrc={HERO_VIDEO_MOBILE}
+          poster={`${import.meta.env.BASE_URL}img/hero-poster.jpg`}
+          posterWebp={`${import.meta.env.BASE_URL}img/hero-poster.webp`}
+        />
 
         <div className="noise-overlay pointer-events-none absolute inset-0 opacity-[0.7] mix-blend-overlay" />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
@@ -40,8 +45,8 @@ export default function Hero() {
                 className="max-w-md text-xs text-primary/70 sm:text-sm md:text-base"
                 style={{ lineHeight: 1.4 }}
               >
-                记录 — 永远感恩 — 热爱生活。这里存放我的读书笔记、播客总结与项目复盘，
-                以及一些还没想清楚就先写下来的东西。
+                在 AI、工程与生活之间持续学习和创造。这里记录项目实践、读书与播客笔记，
+                也收纳那些仍在形成的思考。
               </motion.p>
 
               <motion.div

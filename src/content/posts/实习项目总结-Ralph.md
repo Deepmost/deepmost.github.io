@@ -5,7 +5,7 @@ tags:
   - AI Agent
   - Python
   - 架构设计
-  - 个人项目
+  - 实习项目
 ---
 
 # Ralph — 自主 AI Agent 循环执行器（个人项目 / Python）

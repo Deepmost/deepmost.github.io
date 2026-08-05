@@ -57,7 +57,11 @@ export default function LatestPosts() {
         <div className="grid grid-cols-1 gap-3 sm:gap-2 md:grid-cols-2 md:gap-1 lg:h-[480px] lg:grid-cols-4">
           {/* Video panel, carried over from the original design */}
           <CardShell index={0} className="min-h-[320px] lg:h-full">
-            <AmbientVideo src={CARD_VIDEO} poster={`${import.meta.env.BASE_URL}img/poster.jpg`} />
+            <AmbientVideo
+              src={CARD_VIDEO}
+              poster={`${import.meta.env.BASE_URL}img/poster.jpg`}
+              posterWebp={`${import.meta.env.BASE_URL}img/poster.webp`}
+            />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
             <div className="relative flex h-full flex-col justify-end p-5 sm:p-6">
               <p className="text-base font-medium sm:text-lg" style={{ color: '#E1E0CC' }}>

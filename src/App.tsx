@@ -20,6 +20,14 @@ function ScrollToTop() {
   return null
 }
 
+function RagentDocRedirect() {
+  useEffect(() => {
+    window.location.replace('/ragent-doc/index.html')
+  }, [])
+
+  return null
+}
+
 export default function App() {
   const location = useLocation()
 
@@ -44,6 +52,7 @@ export default function App() {
           <Route path="/archives" element={<Archives />} />
           <Route path="/tags" element={<Tags />} />
           <Route path="/about" element={<About />} />
+          <Route path="/ragent-doc" element={<RagentDocRedirect />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </motion.div>

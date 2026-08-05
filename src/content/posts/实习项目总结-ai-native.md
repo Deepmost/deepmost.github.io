@@ -5,7 +5,7 @@ tags:
   - 后端开发
   - AI
   - 大模型
-  - 项目总结
+  - 实习项目
 ---
 
 # learnspace-ai-study 模块简介（STAR）
