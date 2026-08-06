@@ -88,31 +88,32 @@ kbd{background:#eef1f5;border:1px solid #d5dae1;border-bottom-width:2px;border-r
 #content.hide-solution.hide-code .split-view{grid-template-columns:minmax(0,1fr)}
 #content.hide-solution.hide-code .split-resizer,
 #content.hide-solution.hide-code .solution-pane{display:none}
-.panel-head{border:1px solid var(--border);border-radius:16px;background:var(--panel);padding:20px 24px 0;margin-bottom:14px;
-  overflow:hidden;background-clip:padding-box;box-shadow:0 2px 5px rgba(16,24,40,.06)}
-.q-title-row{display:flex;align-items:baseline;gap:14px;margin-bottom:14px}
+.panel-head{display:flex;align-items:center;gap:12px;border:1px solid var(--border);border-radius:16px;background:var(--panel);
+  padding:10px 16px;margin-bottom:10px;overflow:hidden;background-clip:padding-box;box-shadow:0 2px 5px rgba(16,24,40,.06)}
+.q-title-row{display:flex;align-items:center;gap:10px;flex:0 1 auto;min-width:0;margin:0}
 .q-rank{flex-shrink:0;font-size:15px;font-weight:800;color:#fff;background:linear-gradient(135deg,#2563eb,#7c3aed);
   min-width:34px;height:34px;padding:0 8px;border-radius:9px;display:grid;place-items:center;transform:translateY(2px)}
-.q-title{margin:0;font-size:22px;font-weight:700;letter-spacing:.2px}
-.q-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.q-title{margin:0;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:19px;font-weight:700;letter-spacing:.2px}
+.q-meta{display:flex;flex:1 1 auto;min-width:0;flex-wrap:nowrap;gap:6px;align-items:center;overflow:hidden}
+.q-meta > .pill{flex:0 0 auto}
 .pill{display:inline-flex;align-items:center;gap:5px;padding:4px 11px;border-radius:999px;font-size:12.5px;
   background:#f1f3f6;color:#374151;border:1px solid #e5e8ed;text-decoration:none;white-space:nowrap}
 .pill.diff.easy{background:#ecfdf3;color:var(--easy);border-color:#bcf0cd}
 .pill.diff.mid{background:#fff7ed;color:var(--mid);border-color:#fde0b8}
 .pill.diff.hard{background:#fef2f2;color:var(--hard);border-color:#fccbcc}
-.pill.algo{max-width:100%}
+.pill.algo{flex:1 1 auto;min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis}
 .pill.link{background:var(--accent-soft);color:var(--accent);border-color:#c7d8ff}
 .pill.link:hover{background:#dbe7ff}
 
 /* 工具栏 */
-.q-toolbar{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
-.panel-head > .q-toolbar{margin:16px -24px 0;padding:12px 24px 14px;border-top:1px solid #edf0f4;background:#fbfcfe}
+.q-toolbar{display:flex;align-items:center;flex:0 1 auto;min-width:0;gap:6px;margin:0;flex-wrap:nowrap}
+.panel-head > .q-toolbar{margin:0;padding:0;border:0;background:none}
 .tb-btn{cursor:pointer;border:1px solid var(--border);background:var(--panel);color:var(--text);
-  border-radius:10px;padding:6px 12px;font-size:13px;font-family:inherit;transition:.12s;box-shadow:0 1px 1px rgba(16,24,40,.04)}
+  flex:0 0 auto;border-radius:10px;padding:6px 12px;font-size:13px;font-family:inherit;transition:.12s;box-shadow:0 1px 1px rgba(16,24,40,.04)}
 .tb-btn:hover{border-color:var(--accent);color:var(--accent)}
 .tb-btn.on{background:var(--accent);border-color:var(--accent);color:#fff}
 .tb-btn:focus-visible{outline:3px solid rgba(37,99,235,.2);outline-offset:2px}
-.tb-hint{font-size:12px;color:var(--muted)}
+.tb-hint{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px;color:var(--muted)}
 
 /* 正文块 */
 .q-block{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:20px 24px;margin-bottom:14px;
@@ -169,8 +170,10 @@ p code,li code{background:#eef1f5;border-radius:5px;padding:1px 6px;font-size:13
   .brand span.txt{display:none}
   .layout{height:auto;min-height:calc(100vh - 56px)}
   .content{padding:18px 12px 60px}
-  .panel-head{padding:16px 16px 0}
-  .panel-head > .q-toolbar{margin-left:-16px;margin-right:-16px;padding-left:16px;padding-right:16px}
+  .panel-head{align-items:flex-start;flex-wrap:wrap;padding:12px 16px 10px;gap:8px}
+  .q-title-row{flex:1 1 100%;}
+  .q-meta{flex:1 1 auto;flex-wrap:wrap;overflow:visible}
+  .panel-head > .q-toolbar{flex:1 1 100%;}
   .q-block{padding:16px}
   /* 窄屏退回上下堆叠，各自仍可独立滚动 */
   .content.split-mode{overflow-y:auto;display:block}
