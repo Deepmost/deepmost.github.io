@@ -28,6 +28,14 @@ function RagentDocRedirect() {
   return null
 }
 
+function CodetopTop200Redirect() {
+  useEffect(() => {
+    window.location.replace('/codetop-top200/codetop_top200.html')
+  }, [])
+
+  return null
+}
+
 export default function App() {
   const location = useLocation()
 
@@ -56,6 +64,7 @@ export default function App() {
           <Route path="/tags" element={<Tags />} />
           <Route path="/about" element={<About />} />
           <Route path="/ragent-doc" element={<RagentDocRedirect />} />
+          <Route path="/codetop-top200" element={<CodetopTop200Redirect />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </motion.div>
