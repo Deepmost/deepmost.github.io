@@ -32,7 +32,10 @@ export default function App() {
   const location = useLocation()
 
   return (
-    <div className="min-h-screen w-full overflow-x-hidden bg-black">
+    <div
+      className="min-h-screen bg-white tracking-[-0.02em]"
+      style={{ fontFamily: "'Inter', sans-serif" }}
+    >
       <ScrollToTop />
 
       {/*
