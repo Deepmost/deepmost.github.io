@@ -16,10 +16,6 @@
     .brand-mark { display:inline-flex; width:32px; height:32px; align-items:center; justify-content:center; margin-right:8px; color:#fff; background:var(--teal); border-radius:8px; font-weight:700; }
     .brand h1 { display:inline; margin:0; font-size:18px; letter-spacing:-.02em; }
     .brand p { margin:8px 0 0; color:var(--muted); font-size:12px; }
-    .search { margin:18px 0 12px; position:relative; }
-    .search input { width:100%; padding:10px 12px 10px 36px; border:1px solid var(--line); border-radius:8px; outline:none; background:#fff; color:var(--ink); }
-    .search input:focus { border-color:var(--teal); box-shadow:0 0 0 3px rgba(8,127,123,.12); }
-    .search::before { content:"⌕"; position:absolute; left:13px; top:7px; color:var(--muted); font-size:21px; line-height:1; }
     .nav-label { padding:0 10px; color:var(--muted); font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
     .doc-nav { display:grid; gap:3px; margin-top:6px; }
     .doc-nav-item { display:grid; grid-template-columns:32px 1fr; gap:7px; width:100%; padding:9px 9px; border:0; border-radius:8px; text-align:left; background:transparent; color:var(--ink); cursor:pointer; }
@@ -30,12 +26,7 @@
     .doc-nav-item small { display:block; margin-top:2px; color:var(--muted); font-size:11px; line-height:1.35; }
     .doc-nav-item.active small { color:#347a77; }
     .sidebar-foot { margin:22px 10px 0; padding-top:14px; border-top:1px solid var(--line); color:var(--muted); font-size:11px; }
-    .content-shell { min-width:0; padding:26px clamp(20px,4vw,64px) 60px; }
-    .topbar { display:flex; justify-content:space-between; gap:16px; align-items:center; max-width:1200px; margin:0 auto 20px; }
-    .crumb { color:var(--muted); font-size:12px; }
-    .top-actions { display:flex; gap:8px; }
-    .top-actions a, .top-actions button { padding:7px 11px; border:1px solid var(--line); border-radius:7px; color:var(--muted); background:var(--paper); text-decoration:none; cursor:pointer; }
-    .top-actions a:hover, .top-actions button:hover { color:var(--teal); border-color:var(--teal); }
+    .content-shell { min-width:0; padding:12px clamp(20px,4vw,64px) 60px; }
     main { max-width:1200px; margin:0 auto; }
     .doc { display:none; padding:34px clamp(22px,4vw,58px) 50px; background:var(--paper); border:1px solid var(--line); border-radius:12px; box-shadow:var(--shadow); }
     .doc.active { display:block; }
@@ -64,16 +55,14 @@
     .toc a { display:block; padding:2px 0; color:var(--muted); text-decoration:none; }
     .toc a.level-3 { padding-left:10px; }
     .toc a:hover { color:var(--teal); }
-    .status { color:var(--muted); font-size:12px; }
-    @media (max-width:900px) { .app-shell { grid-template-columns:1fr; } .sidebar { position:relative; height:auto; max-height:none; border-right:0; border-bottom:1px solid var(--line); padding:16px; } .brand { padding-bottom:12px; } .doc-nav { grid-template-columns:repeat(2,minmax(0,1fr)); } .content-shell { padding:18px 12px 40px; } .topbar { align-items:flex-start; } .toc { position:static; max-width:none; max-height:none; margin-top:12px; } }
-    @media (max-width:540px) { .doc-nav { grid-template-columns:1fr; } .doc { padding:24px 16px 36px; } .top-actions a, .top-actions button { font-size:12px; padding:5px 8px; } }
+    @media (max-width:900px) { .app-shell { grid-template-columns:1fr; } .sidebar { position:relative; height:auto; max-height:none; border-right:0; border-bottom:1px solid var(--line); padding:16px; } .brand { padding-bottom:12px; } .doc-nav { grid-template-columns:repeat(2,minmax(0,1fr)); } .content-shell { padding:8px 12px 40px; } .toc { position:static; max-width:none; max-height:none; margin-top:12px; } }
+    @media (max-width:540px) { .doc-nav { grid-template-columns:1fr; } .doc { padding:24px 16px 36px; } }
   </style>
 </head>
 <body>
   <div class="app-shell">
     <aside class="sidebar" aria-label="文档导航">
       <div class="brand"><span class="brand-mark">R</span><h1>Ragent AI</h1><p>源码架构学习文档</p></div>
-      <label class="search"><input id="doc-search" type="search" placeholder="搜索模块或关键词" aria-label="搜索模块或关键词"></label>
       <div class="nav-label">文档目录</div>
       <nav class="doc-nav" id="doc-nav">
   <button class="doc-nav-item" type="button" data-doc="README.md" data-search="学习入口 先建立全貌，再按链路深入">
@@ -139,7 +128,6 @@
       <div class="sidebar-foot">源码基线：main / 17eaaa6<br>生成日期：2026-08-05</div>
     </aside>
     <section class="content-shell">
-      <div class="topbar"><div class="crumb">架构学习文档 <span class="status" id="search-status"></span></div><div class="top-actions"><a href="README.md">Markdown 源文档</a><button id="top-button" type="button">回到顶部</button></div></div>
       <main id="documents">
   <article class="doc" id="doc-readme" data-file="README.md" data-title="学习入口" data-search="学习入口 先建立全貌，再按链路深入  Ragent AI 项目学习文档 
  
@@ -7499,8 +7487,6 @@ npm run lint
       const docs = [...document.querySelectorAll('.doc')];
       const empty = document.getElementById('empty');
       const toc = document.getElementById('toc');
-      const search = document.getElementById('doc-search');
-      const status = document.getElementById('search-status');
       const keyFor = file => 'doc-' + file.replace(/\.md$/i, '').replace(/[^\p{L}\p{N}_-]+/gu, '-').replace(/^-+|-+$/g, '').toLowerCase();
       const headingKey = value => value.trim().toLowerCase().replace(/[^\p{L}\p{N}_-]+/gu, '-').replace(/^-+|-+$/g, '');
       docs.forEach(doc => {
@@ -7530,19 +7516,6 @@ npm run lint
         toc.innerHTML = headings.length ? '<div class="toc-title">本页目录</div>' + headings.map(h => '<a class="level-' + h.tagName.slice(1) + '" href="#' + h.id + '">' + h.textContent + '</a>').join('') : '';
       };
       navItems.forEach(item => item.addEventListener('click', () => select(item.dataset.doc)));
-      search.addEventListener('input', () => {
-        const query = search.value.trim().toLowerCase();
-        let matches = 0;
-        navItems.forEach(item => {
-          const doc = document.querySelector('.doc[data-file="' + CSS.escape(item.dataset.doc) + '"]');
-          const hit = !query || (item.dataset.search + ' ' + (doc?.dataset.search || '')).toLowerCase().includes(query);
-          item.hidden = !hit;
-          if (hit) matches++;
-        });
-        status.textContent = query ? ' · 匹配 ' + matches + ' 篇' : '';
-        if (query && matches === 0) empty.style.display = 'block';
-        else if (query) empty.style.display = 'none';
-      });
       document.addEventListener('click', event => {
         const link = event.target.closest('a');
         if (!link) return;
@@ -7551,7 +7524,6 @@ npm run lint
         event.preventDefault();
         select(match[1], match[2]);
       });
-      document.getElementById('top-button').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
       const initial = decodeURIComponent(location.hash.slice(1));
       const initialFile = initial ? initial + '.md' : 'README.md';
       select(document.querySelector('.doc[data-file="' + CSS.escape(initialFile) + '"]') ? initialFile : 'README.md');
