@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import { Menu, X } from 'lucide-react'
+import { Menu, Moon, Sun, X } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom'
+import { useTheme } from '../hooks/useTheme'
 
 const NAV_ITEMS = [
   { label: '首页', to: '/' },
@@ -10,9 +11,6 @@ const NAV_ITEMS = [
   { label: '关于', to: '/about' },
 ]
 
-const DIM = 'rgba(225, 224, 204, 0.8)'
-const BRIGHT = '#E1E0CC'
-
 interface NavbarProps {
   /** Hero sits inside a rounded inset panel; inner pages sit on the page itself. */
   variant?: 'overlay' | 'page'
@@ -21,6 +19,9 @@ interface NavbarProps {
 export default function Navbar({ variant = 'overlay' }: NavbarProps) {
   const { pathname } = useLocation()
   const [mobileOpen, setMobileOpen] = useState(false)
+  const { theme, toggleTheme } = useTheme()
+  const themeLabel = theme === 'dark' ? '切换到亮色模式' : '切换到暗色模式'
+  const ThemeIcon = theme === 'dark' ? Sun : Moon
 
   const isActive = (to: string) =>
     to === '/' ? pathname === '/' : pathname === to || pathname.startsWith(`${to}/`)
@@ -44,19 +45,26 @@ export default function Navbar({ variant = 'overlay' }: NavbarProps) {
         </Link>
 
         <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 rounded-full border border-white/30 bg-white/20 px-2 py-2 backdrop-blur-md md:flex">
-          {heroNavItems.map((item, index) => (
+          {heroNavItems.map((item) => (
             <Link
               key={item.label}
               to={item.to}
               className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors ${
-                index === 0
-                  ? 'text-white'
-                  : 'text-white/80 hover:bg-white/20 hover:text-white'
+                isActive(item.to) ? 'text-white' : 'text-white/80 hover:bg-white/20 hover:text-white'
               }`}
             >
               {item.label}
             </Link>
           ))}
+          <button
+            type="button"
+            className="flex h-8 w-8 items-center justify-center rounded-full text-white/80 transition-colors hover:bg-white/20 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            onClick={toggleTheme}
+            aria-label={themeLabel}
+            title={themeLabel}
+          >
+            <ThemeIcon size={16} aria-hidden="true" />
+          </button>
         </div>
 
         <button
@@ -75,18 +83,27 @@ export default function Navbar({ variant = 'overlay' }: NavbarProps) {
             id="mobile-navigation"
             className="absolute left-4 right-4 top-[72px] overflow-hidden rounded-lg border border-white/20 bg-black/80 p-2 backdrop-blur-xl md:hidden"
           >
-            {heroNavItems.map((item, index) => (
+            {heroNavItems.map((item) => (
               <Link
                 key={item.label}
                 to={item.to}
                 onClick={() => setMobileOpen(false)}
                 className={`block rounded-md px-4 py-3 text-sm font-medium transition-colors ${
-                  index === 0 ? 'text-white' : 'text-white/80 hover:bg-white/10 hover:text-white'
+                  isActive(item.to) ? 'text-white' : 'text-white/80 hover:bg-white/10 hover:text-white'
                 }`}
               >
                 {item.label}
               </Link>
             ))}
+            <button
+              type="button"
+              className="flex w-full items-center gap-3 rounded-md px-4 py-3 text-left text-sm font-medium text-white/80 transition-colors hover:bg-white/10 hover:text-white"
+              onClick={toggleTheme}
+              aria-label={themeLabel}
+            >
+              <ThemeIcon size={17} aria-hidden="true" />
+              {theme === 'dark' ? '亮色模式' : '暗色模式'}
+            </button>
           </div>
         )}
       </nav>
@@ -98,7 +115,7 @@ export default function Navbar({ variant = 'overlay' }: NavbarProps) {
       className="sticky top-0 z-40 flex justify-center"
     >
       <ul
-        className="flex items-center gap-3 rounded-b-2xl border-x border-b border-white/5 bg-black px-4 py-2 sm:gap-6 md:gap-12 md:rounded-b-3xl md:px-8 lg:gap-14"
+        className="site-nav flex items-center gap-3 rounded-b-2xl border-x border-b px-4 py-2 sm:gap-6 md:gap-10 md:rounded-b-3xl md:px-8 lg:gap-12"
       >
         {NAV_ITEMS.map((item) => {
           const active = isActive(item.to)
@@ -106,14 +123,7 @@ export default function Navbar({ variant = 'overlay' }: NavbarProps) {
             <li key={item.to}>
               <Link
                 to={item.to}
-                className="relative whitespace-nowrap text-[10px] transition-colors duration-300 sm:text-xs md:text-sm"
-                style={{ color: active ? BRIGHT : DIM }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = BRIGHT
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = active ? BRIGHT : DIM
-                }}
+                className={`site-nav-link relative whitespace-nowrap text-[10px] transition-colors duration-300 sm:text-xs md:text-sm ${active ? 'is-active' : ''}`}
               >
                 {item.label}
                 {active && (
@@ -123,6 +133,17 @@ export default function Navbar({ variant = 'overlay' }: NavbarProps) {
             </li>
           )
         })}
+        <li>
+          <button
+            type="button"
+            className="theme-nav-button flex h-8 w-8 items-center justify-center rounded-full transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+            onClick={toggleTheme}
+            aria-label={themeLabel}
+            title={themeLabel}
+          >
+            <ThemeIcon size={15} aria-hidden="true" />
+          </button>
+        </li>
       </ul>
     </nav>
   )

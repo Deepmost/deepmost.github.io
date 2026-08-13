@@ -36,12 +36,20 @@ function CodetopTop200Redirect() {
   return null
 }
 
+function InternshipWorkSummaryRedirect() {
+  useEffect(() => {
+    window.location.replace('/internship-work-summary/index.html')
+  }, [])
+
+  return null
+}
+
 export default function App() {
   const location = useLocation()
 
   return (
     <div
-      className="min-h-screen bg-white tracking-[-0.02em]"
+      className="site-root min-h-screen tracking-[-0.02em]"
       style={{ fontFamily: "'Inter', sans-serif" }}
     >
       <ScrollToTop />
@@ -59,6 +67,7 @@ export default function App() {
         <Routes location={location}>
           <Route path="/" element={<Home />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/internship-work-summary" element={<InternshipWorkSummaryRedirect />} />
           <Route path="/post/:slug" element={<Post />} />
           <Route path="/archives" element={<Archives />} />
           <Route path="/tags" element={<Tags />} />

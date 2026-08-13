@@ -85,6 +85,213 @@ body {
   color: #e1e0cc;
 }
 
+:root {
+  color-scheme: dark;
+  --site-bg: #000000;
+  --site-surface: #101010;
+  --site-surface-raised: #212121;
+  --site-ink: #e1e0cc;
+  --site-muted: #9b9b91;
+  --site-subtle: #6f716a;
+  --site-border: rgba(255, 255, 255, 0.08);
+  --site-border-strong: rgba(255, 255, 255, 0.16);
+  --site-hover: #161615;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --site-bg: #f5f6f3;
+  --site-surface: #ffffff;
+  --site-surface-raised: #e8ece8;
+  --site-ink: #25312d;
+  --site-muted: #5d6c65;
+  --site-subtle: #7b8781;
+  --site-border: rgba(37, 49, 45, 0.13);
+  --site-border-strong: rgba(37, 49, 45, 0.22);
+  --site-hover: #eef2ef;
+}
+
+body,
+.site-root {
+  background-color: var(--site-bg);
+  color: var(--site-ink);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+/* The blog uses a dark Tailwind palette by default. These scoped mappings keep
+ * the existing layout while allowing the navbar toggle to switch the whole UI. */
+:root[data-theme='light'] .site-root .bg-black {
+  background-color: var(--site-bg) !important;
+}
+
+:root[data-theme='light'] .site-root .bg-\[\#101010\] {
+  background-color: var(--site-surface) !important;
+}
+
+:root[data-theme='light'] .site-root .bg-\[\#161615\] {
+  background-color: var(--site-hover) !important;
+}
+
+:root[data-theme='light'] .site-root .bg-\[\#212121\] {
+  background-color: var(--site-surface-raised) !important;
+}
+
+:root[data-theme='light'] .site-root .text-primary,
+:root[data-theme='light'] .site-root .text-primary\/70,
+:root[data-theme='light'] .site-root .text-primary\/75,
+:root[data-theme='light'] .site-root .text-primary\/80 {
+  color: var(--site-ink) !important;
+}
+
+:root[data-theme='light'] .site-root .text-gray-400,
+:root[data-theme='light'] .site-root .text-gray-500 {
+  color: var(--site-muted) !important;
+}
+
+:root[data-theme='light'] .site-root .text-gray-600,
+:root[data-theme='light'] .site-root .text-gray-700 {
+  color: var(--site-subtle) !important;
+}
+
+:root[data-theme='light'] .site-root .border-white\/5,
+:root[data-theme='light'] .site-root .border-white\/10 {
+  border-color: var(--site-border) !important;
+}
+
+:root[data-theme='light'] .site-root .hover\:bg-\[\#161615\]:hover {
+  background-color: var(--site-hover) !important;
+}
+
+.site-nav {
+  border-color: var(--site-border);
+  background-color: var(--site-bg);
+  transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+.site-nav-link {
+  color: var(--site-muted);
+}
+
+.site-nav-link:hover,
+.site-nav-link.is-active {
+  color: var(--site-ink);
+}
+
+.theme-nav-button {
+  color: var(--site-ink);
+}
+
+.theme-nav-button:hover {
+  background-color: var(--site-hover);
+}
+
+.theme-nav-button:focus-visible {
+  outline-color: var(--site-ink);
+}
+
+:root[data-theme='light'] .site-root .bg-primary {
+  background-color: var(--site-ink) !important;
+}
+
+:root[data-theme='light'] .site-root .border-primary\/20,
+:root[data-theme='light'] .site-root .border-primary\/30,
+:root[data-theme='light'] .site-root .border-primary\/40,
+:root[data-theme='light'] .site-root .border-primary\/50,
+:root[data-theme='light'] .site-root .border-primary\/70,
+:root[data-theme='light'] .site-root .hover\:border-primary\/20:hover,
+:root[data-theme='light'] .site-root .hover\:border-primary\/40:hover,
+:root[data-theme='light'] .site-root .hover\:border-primary\/50:hover,
+:root[data-theme='light'] .site-root .hover\:border-primary\/70:hover,
+:root[data-theme='light'] .site-root .focus-within\:border-primary\/40:focus-within {
+  border-color: var(--site-border-strong) !important;
+}
+
+:root[data-theme='light'] .site-root .text-black {
+  color: var(--site-bg) !important;
+}
+
+:root[data-theme='light'] .site-root [style*="color: '#E1E0CC'"],
+:root[data-theme='light'] .site-root [style*='color: rgb(225, 224, 204)'] {
+  color: var(--site-ink) !important;
+}
+
+:root[data-theme='light'] .site-root .media-card [style*='color'],
+:root[data-theme='light'] .site-root .media-card .text-gray-400 {
+  color: #e1e0cc !important;
+}
+
+:root[data-theme='light'] .site-root svg[color='#E1E0CC'] {
+  color: var(--site-ink) !important;
+}
+
+:root[data-theme='light'] .site-root .prose-prisma {
+  color: var(--site-muted);
+}
+
+:root[data-theme='light'] .site-root .prose-prisma h1,
+:root[data-theme='light'] .site-root .prose-prisma h2,
+:root[data-theme='light'] .site-root .prose-prisma h3,
+:root[data-theme='light'] .site-root .prose-prisma h4,
+:root[data-theme='light'] .site-root .prose-prisma strong,
+:root[data-theme='light'] .site-root .prose-prisma em {
+  color: var(--site-ink);
+}
+
+:root[data-theme='light'] .site-root .prose-prisma h2,
+:root[data-theme='light'] .site-root .prose-prisma th,
+:root[data-theme='light'] .site-root .prose-prisma td,
+:root[data-theme='light'] .site-root .prose-prisma pre {
+  border-color: var(--site-border);
+}
+
+:root[data-theme='light'] .site-root .prose-prisma a {
+  color: #166b58;
+  border-bottom-color: rgba(22, 107, 88, 0.35);
+}
+
+:root[data-theme='light'] .site-root .prose-prisma blockquote {
+  color: var(--site-muted);
+  border-left-color: var(--site-border-strong);
+}
+
+:root[data-theme='light'] .site-root .prose-prisma code,
+:root[data-theme='light'] .site-root .prose-prisma th {
+  background-color: var(--site-surface-raised);
+  color: var(--site-ink);
+}
+
+:root[data-theme='light'] .site-root .prose-prisma pre {
+  background-color: #17201d;
+  color: #edf2ef;
+}
+
+:root[data-theme='light'] .site-root .prose-prisma pre code {
+  background-color: transparent;
+  color: inherit;
+}
+
+:root[data-theme='light'] body {
+  background-color: var(--site-bg);
+  color: var(--site-ink);
+}
+
+:root[data-theme='light'] ::selection {
+  background: #25312d;
+  color: #ffffff;
+}
+
+:root[data-theme='light'] ::-webkit-scrollbar-track {
+  background: #eef1ee;
+}
+
+:root[data-theme='light'] ::-webkit-scrollbar-thumb {
+  background: #bcc5c0;
+}
+
+:root[data-theme='light'] ::-webkit-scrollbar-thumb:hover {
+  background: #9ca9a3;
+}
+
 ::selection {
   background: #dedbc8;
   color: #000;

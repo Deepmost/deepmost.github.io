@@ -4,6 +4,17 @@ import { BrowserRouter } from 'react-router-dom'
 import App from './App'
 import './index.css'
 
+try {
+  const saved = localStorage.getItem('deepmost-theme')
+  const theme = saved === 'light' || saved === 'dark'
+    ? saved
+    : matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
+  document.documentElement.dataset.theme = theme
+  document.documentElement.style.colorScheme = theme
+} catch {
+  document.documentElement.dataset.theme = 'dark'
+}
+
 // The root deployment produces an empty basename after removing the trailing
 // slash, which is exactly what React Router expects for deepmost.github.io.
 const basename = import.meta.env.BASE_URL.replace(/\/$/, '')

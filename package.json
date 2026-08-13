@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "generate:work-summary": "node scripts/generate-work-summary.mjs",
+    "sanitize:ragent-doc": "node scripts/sanitize-ragent-doc.mjs",
+    "build": "npm run generate:work-summary && npm run sanitize:ragent-doc && tsc -b && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -13,6 +15,7 @@
     "highlight.js": "^11.11.1",
     "lucide-react": "0.469.0",
     "markdown-it": "^14.1.0",
+    "mermaid": "^11.12.0",
     "react": "18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.28.1"

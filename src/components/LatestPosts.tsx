@@ -56,7 +56,7 @@ export default function LatestPosts() {
 
         <div className="grid grid-cols-1 gap-3 sm:gap-2 md:grid-cols-2 md:gap-1 lg:h-[480px] lg:grid-cols-4">
           {/* Video panel, carried over from the original design */}
-          <CardShell index={0} className="min-h-[320px] lg:h-full">
+          <CardShell index={0} className="media-card min-h-[320px] lg:h-full">
             <AmbientVideo
               src={CARD_VIDEO}
               poster={`${import.meta.env.BASE_URL}img/poster.jpg`}

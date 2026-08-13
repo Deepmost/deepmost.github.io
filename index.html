@@ -9,6 +9,18 @@
       content="在 AI、工程与生活之间持续学习和创造，记录项目实践、读书与播客笔记，以及仍在形成的思考。"
     />
     <meta name="theme-color" content="#000000" />
+    <script>
+      try {
+        const saved = localStorage.getItem('deepmost-theme')
+        const theme = saved === 'light' || saved === 'dark'
+          ? saved
+          : matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
+        document.documentElement.dataset.theme = theme
+        document.documentElement.style.colorScheme = theme
+      } catch {
+        document.documentElement.dataset.theme = 'dark'
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
