@@ -1,6 +1,6 @@
 ---
-title: 实习工作贡献梳理
-date: 2026-08-13 12:00:00
+title: 李超 工作贡献梳理
+date: 2026-08-14 12:00:00
 tags:
   - 实习复盘
   - 后端开发
@@ -8,11 +8,11 @@ tags:
   - AI 工程
 ---
 
-> 统计口径：基于相关 Git 提交历史与源码静态阅读
-> 扫描范围：`D:\idea_project`（14 个仓库）、`D:\qhfx`（3 个仓库）
-> 时间跨度：2026-04-09 ~ 2026-08-13（约 18 周）
-> 提交总数：**141 次**，分布在 **10 个仓库**、**3 条业务线**
-> 最后更新：2026-08-13（admin-api / admin-web「站点访问授权」权限模型重构，授权流程由「超管全量替换」改为「范围内增量授权/撤销」）
+> 统计口径：git 提交作者 `李超 <C_Li02@163.com>` / `李超 <lichao@whaty.com>`
+> 扫描范围：`D:\idea_project`（既有 14 个仓库）+ `D:\qhfx`（3 个仓库）；本次另对 `learnspace-ai-study-api`、`learnspace-ai-study-service`、`learnspace-ai-study-web` 做源码快照扫描
+> 时间跨度：2026-04-09 ~ 2026-08-14（约 18 周）
+> 提交总数：**141 次**，分布在 **10 个仓库**、**3 条既有业务线**；LearnSpace AI Study 按源码快照纳入，未冒充既有 git 作者统计
+> 最后更新：2026-08-14（新增 LearnSpace AI 原生学习平台架构、补充 learnspace Redis/MQ 全仓架构核验）
 
 ---
 
@@ -22,7 +22,7 @@ tags:
 
 | 业务线 | 仓库 | 提交数 | 时间区间 | 角色 |
 |---|---|---|---|---|
-| **AI 智慧教学平台**（清华附小） | qhfx-api | 22 | 04-09 ~ 05-28 | 后端最活跃贡献者 |
+| **AI 智慧教学平台**<br>(清华附小) | qhfx-api | 22 | 04-09 ~ 05-28 | 后端最活跃贡献者 |
 | | qhfx-web | 27 | 04-09 ~ 05-28 | 前端业务主力 |
 | **站点成本核算平台** | site_cost | 45 | 05-28 ~ 08-04 | **创建者 / 架构设计者** |
 | **learnspace 课程空间** | learnspace-rest-api | 15 | 06-23 ~ 08-10 | 专项需求负责人 |
@@ -32,8 +32,10 @@ tags:
 | | learnspace-admin-web | **7** | 07-01 ~ **08-13** | 同上 |
 | | learnspace-learning-web | 2 | 07-10 ~ 07-21 | 同上 |
 | | learnspace-xxl-job-executor | 1 | 07-30 | 同上 |
+| **LearnSpace AI 原生学习平台** | learnspace-ai-study-api / service | 源码快照 | 当前版本 | **核心设计者 / 架构负责人 / 全栈开发者** |
+| | learnspace-ai-study-web | 源码快照 | 当前版本 | 同上 |
 
-### 1.2 三条业务线的时间接力
+### 1.2 三条既有业务线的时间接力
 
 ```mermaid
 gantt
@@ -66,7 +68,7 @@ gantt
 
 三段工作**首尾相接、中段并行**：qhfx 交付完成的同一天（05-28）site_cost 起第一个功能提交；06-23 起 site_cost 与 learnspace 双线并行推进两个月。08-04 site_cost 收尾后，learnspace 侧独立推进，最新一段是 08-12 ~ 08-13 的站点权限子系统（建成 → 修跨库事务缺陷 → 权限模型重构 → 页面细节收尾，三天内四个阶段）。
 
-### 1.3 三条业务线之间的关系
+### 1.3 三条既有业务线之间的关系
 
 三个项目不是孤立的，通过「教育业务 → 数据资产 → 成本归因」形成一条闭环：
 
@@ -101,13 +103,14 @@ flowchart TD
     style ai fill:#f0e8f8,stroke:#7a4c9c
 ```
 
-- **learnspace 是数据源头**：本人在 learnspace 侧开发的学习轨迹 / 学习时长 / 终端类型 SDK 接口，输出的正是"哪个站点、哪个学生、学了多久"这类行为数据；而 site_cost 消费的云眼 `site_studytime_daily`（学习时长）就是同一批站点的运行数据。**同一份学习时长，在 learnspace 侧是教学结果，在 site_cost 侧是成本分母。**
+- **learnspace 是数据源头**：李超在 learnspace 侧开发的学习轨迹 / 学习时长 / 终端类型 SDK 接口，输出的正是"哪个站点、哪个学生、学了多久"这类行为数据；而 site_cost 消费的云眼 `site_studytime_daily`（学习时长）就是同一批站点的运行数据。**同一份学习时长，在 learnspace 侧是教学结果，在 site_cost 侧是成本分母。**
 - **site_cost 是运营侧闭环**：learnspace 多站点（`siteCode` 隔离）架构带来的直接后果是几百个站点共用十几家 CDN，账单无法归因。site_cost 正是为这个问题而建。
 - **qhfx 是能力前沿**：把 AI（备课/批改/学伴）在一个新建的小体量系统里跑通，与 learnspace 这类存量大平台形成"新能力试验田 vs 稳态主力"的分工。
+- **LearnSpace AI Study 是 learnspace 的 AI 原生学生端新域**：本次扫描的项目直接复用课程、目录、选课、资源和 SSO 主数据，在存量课程空间之上新增测评、知识点掌握度、多 Agent 对话、GenUI 和游戏化闭环；详见第六节。
 
 ### 1.4 技术能力画像
 
-从三个项目横向看，能力覆盖面：
+从三条既有业务线与新增 AI Study 项目横向看，能力覆盖面：
 
 | 维度 | 体现 |
 |---|---|
@@ -119,23 +122,25 @@ flowchart TD
 | **AI 工程** | Prompt 工程（细粒度步骤拆分 + 原文精确引用）、截断 JSON 修复、AI 输出结构化落库、token 缓存 |
 | **运维/工程化** | XXL-JOB、Spring `@Scheduled`、Jenkins 部署脚本、钉钉告警、OAuth2 SSO 接入、单测与集成测试 |
 
-一个贯穿三个项目的稳定习惯：**重大改动先写方案文档再落地**。site_cost 有 `6b2c4ee` 纯文档提交；qhfx 有 16 份 `doc/开发/*.md` 方案（大部分出自其手）；learnspace 有 SDK 文档与代码严格一一对应。
+一个贯穿既有项目与新增 AI Study 的稳定习惯：**重大改动先写方案文档再落地**。site_cost 有 `6b2c4ee` 纯文档提交；qhfx 有 16 份 `doc/开发/*.md` 方案（大部分出自其手）；learnspace 有 SDK 文档与代码严格一一对应；AI Study 有 `Agent自动委派切换方案.md`、数据表清单与 V100~V109 迁移脚本。
 
-### 1.5 缓存与消息：三个项目的三种选择
+### 1.5 缓存与消息：三个既有项目与 AI Study 的四种选择
 
-三个项目对 Redis / MQ 的取法差异很大，但**差异本身是有理由的**，不是习惯不同。核实后的实际情况：
+既有三个项目加上新增 AI Study，对 Redis / MQ 的取法差异很大，但**差异本身是有理由的**，不是习惯不同。核实后的实际情况：
 
 | 项目 | Redis | MQ | 缓存实现 | 他在这条线上做了什么 |
 |---|---|---|---|---|
-| **learnspace** | 有（阿里云托管，各模块用 `redis.db` 隔离） | RocketMQ（4.x/5.x 双客户端、45+ topic） | 公司 WhatyCache 框架（`CacheUtil` / `LearnspaceCacheUtil`） | **Redis 任务状态机**（知识图谱异步化）、**多套缓存一致性清理**（SDK 批量接口 + 课程发布）。未碰 MQ 生产/消费代码 |
+| **learnspace** | 有（WhatyCache/Redisson；`projectName`、逻辑 cache name、siteCode/key 维度隔离，环境再切 `redis.db`） | RocketMQ（4.x/5.x 双客户端、66 个源码枚举 topic 字面量去重后） | 公司 WhatyCache 框架（`CacheUtil` / `LearnspaceCacheUtil`） | **Redis 任务状态机**（知识图谱异步化）、**多套缓存一致性清理**（SDK 批量接口 + 课程发布）。未碰 MQ 生产/消费代码 |
 | **site_cost** | **刻意不用** | **刻意不用** | 进程内 `ConcurrentHashMap` + 10 分钟 TTL | **缓存与失效机制的作者**：双 key 设计、7 处主动 `clearCache`、流水线 `tryLock` 防重入 |
 | **qhfx** | 有（Redisson 单机 db0，框架层用） | **无** | 框架 Spring Cache + Sa-Token 的 Caffeine L1 | **`CbbAiClient` 的 token 内存缓存 + 双重检查锁**（他新建） |
+| **LearnSpace AI Study** | 有（复用 WhatyCache/Redisson，缓存异常降级） | 有 Topic/Consumer 抽象，默认日志降级；任务可同步 fallback | `CacheService` + 集中 Key/TTL；资源访问 Redis/进程内时间窗去重 | **AI 对话上下文、协议解析、掌握度、GenUI、MQ 降级与 SSE 并发底座的设计者** |
 
 **三个「不用」的判断**都站得住：
 
 - **site_cost 不用 Redis**：单实例部署，数据由每日定时流水线全量重算，缓存只是查询加速。引入 Redis 只增加运维面，换不到能力 —— 与它「无 Lombok、无 Flyway、无前端框架」的整体轻量取向一致。
 - **site_cost 不用 MQ**：全链路是「定时触发 → 串行四步 → 写本地表」，没有跨服务解耦需求，`@Scheduled` 足够。
 - **qhfx 不用 MQ**：AI 调用是同步请求-响应模型，异步只需 `@Async` + 线程池。
+- **LearnSpace AI Study 的 MQ 仍是可插拔骨架**：`MqProducer`、Topic 和 Consumer 已抽象，默认 `LoggingMqProducer` 保证无 MQ 环境可启动；引导任务和资源热度都有同步/直写降级，不能把当前代码描述成已接通生产 RocketMQ。
 
 **一处需要说清的边界**：`learnspace` 的 RocketMQ 体系（topic 枚举、双客户端切换、`SiteMqMsg` 的 siteCode 路由、消费幂等、延迟重试阶梯）**规模很大但不是他的工作** —— 他 15 笔 rest-api 提交中没有一笔改动 MQ 生产者或消费者代码。admin-api 的「MQ Topic 管理」菜单也被他在权限下放设计文档里**明确列入「本期不包含」**。这条边界值得记录，因为它反映的是同一种取向：**只动需求范围内的东西**。
 
@@ -362,12 +367,12 @@ key 有两种, 互不冲突:
 
 - **代码所有权接近 100%**：git blame 显示核心文件每一行都归他 —— `SiteStaQueryService` 974/974、`SiteStaIngestService` 774/774、`SiteCostAlertService` 393/393、`index.js` 755/755、`application.yml` 172/172、`README.md` 278/278
 - **架构决策都有配套方案文档**：三次重大转型（预存储、真实费用口径、吞并 pps）每次都是「先写 doc 再改代码」
-- **发布负责人**：相关提交包含 `Merge branch 'dev_lc' into 'master'`，负责将开发分支合并至 master
-- **系统管理员**：参与系统管理员白名单配置
+- **发布负责人**：两个 `lichao@whaty.com` 提交都是 `Merge branch 'dev_lc' into 'master'` —— 工作邮箱执行 master 合并，个人邮箱日常开发
+- **系统管理员**：`admin.allowed-users` 第一个就是 `lichao`
 
 **与 lizhuang 的分工**：按业务域垂直切分，几乎零代码重叠。
 
-| | 本人（43） | lizhuang（36） |
+| | 李超（43） | lizhuang（36） |
 |---|---|---|
 | 业务域 | **CDN 流量成本** | **直播成本** |
 | 时间 | 05-28 ~ 08-04（奠基） | 07-16 ~ 08-10（扩展） |
@@ -375,7 +380,7 @@ key 有两种, 互不冲突:
 | 核心表 | `site_daily_fact`（**天**粒度） | `live_cost_monthly_fact`（**月**粒度） |
 | 告警口径 | 比值阈值 0.3 / 0.7 | 月度环比（倍数 + 绝对增量取并集） |
 
-关系是「**架构者 → 跟随者**」：本人在 5-7 月建立了「远程库 → 预聚合本地表 → 轻查询 → 钉钉告警」这套模式并写进文档；lizhuang 7 月中入场，把同一套范式套用到直播成本这个新业务域，并复用了 `DingTalkNotifier`、多数据源配置模式、预聚合 + 定时入库 + 前端 tab 的整套基础设施。
+关系是「**架构者 → 跟随者**」：李超在 5-7 月建立了「远程库 → 预聚合本地表 → 轻查询 → 钉钉告警」这套模式并写进文档；lizhuang 7 月中入场，把同一套范式套用到直播成本这个新业务域，并复用了 `DingTalkNotifier`、多数据源配置模式、预聚合 + 定时入库 + 前端 tab 的整套基础设施。
 
 ---
 
@@ -387,7 +392,7 @@ key 有两种, 互不冲突:
 
 面向 K12 校内教学全链路的 AI 教学平台，覆盖五类角色：管理员（年级/班级/学期/教师/学生）、教师（备课/上课/批改/学伴/题库/课堂总结）、学生（作业/学伴/直播/报告）、校长看板、门户。
 
-| 仓库 | 角色 | 本人参与 |
+| 仓库 | 角色 | 李超参与 |
 |---|---|---|
 | `qhfx-api` | 后端单体（RuoYi-Vue-Plus 二次开发） | 22（后端最活跃） |
 | `qhfx-web` | 前端（PC + 移动端 `/m/` 同仓） | 27 |
@@ -397,13 +402,13 @@ key 有两种, 互不冲突:
 
 **后端**：RuoYi-Vue-Plus 5.5.2 / Spring Boot 3.5.9 / JDK 17 / Sa-Token 1.44 / MyBatis-Plus 3.5.14 / Redisson / 多租户。
 
-业务包结构由本人在 `a102e30` 定型：把独立 `ruoyi-ai` 模块整体删掉，代码内聚到 `ruoyi-system` 下的 `controller/{education,lessonprep,companion}`（181 文件改动的大重构）。
+业务包结构由李超在 `a102e30` 定型：把独立 `ruoyi-ai` 模块整体删掉，代码内聚到 `ruoyi-system` 下的 `controller/{education,lessonprep,companion}`（181 文件改动的大重构）。
 
 **前端**：plus-ui 改造 —— Vue 3.5 + TypeScript + Vite + Pinia + Element Plus 2.11 + UnoCSS；移动端 Vant 4；PPT 预览 `@vue-office/pdf`；Word 导出 `docx`；图表 echarts。
 
 **AI 服务**：不是 OpenAI 直连，而是对接公司内部 **CBB AI 网关**（`api.webtrn.cn`，OAuth token + `/api/v2/misc/chatgpt/*`），默认模型 **Deepseek-R1**。
 
-`CbbAiClient`（429 行，在 `741d597` 新建）提供 startNewChat / chat / streamChat / simpleChat / stopChat，含 token 缓存与双重检查锁。**四个消费方全部走同一个 client**：备课助手、智能体、课堂助手、学伴、批改 —— 本人是这一层 AI 技术底座的持有者。
+`CbbAiClient`（429 行，李超在 `741d597` 新建）提供 startNewChat / chat / streamChat / simpleChat / stopChat，含 token 缓存与双重检查锁。**四个消费方全部走同一个 client**：备课助手、智能体、课堂助手、学伴、批改 —— 他是这一层 AI 技术底座的持有者。
 
 **token 缓存是进程内内存而非 Redis**（`CbbAiClient.java:43-73`），这个选择在 RuoYi 这种 Redis 无处不在的框架里反而需要留意：
 
@@ -519,10 +524,10 @@ lvzhiwei (02-04月)  项目奠基与环境：两仓 Initial commit、门户登�
 lianni   (02月)     原型稿与移动端 UI/UX
 aijing   (02-03月)  纯视觉层：清华附小主题 theme-qhfx、主色 #82209e、QhfxModal 组件、图标统一（零业务逻辑）
 lizhuang (02-03月)  课堂场景（智能上课/展示汇报/分组讨论/语音唤醒，大量 mock 驱动）+ 管理统计域 + Office 插件
-本人     (04-05月)  ★ 把 mock 前端与 AI 能力真正对接成可用系统
+李超     (04-05月)  ★ 把 mock 前端与 AI 能力真正对接成可用系统
 ```
 
-一句话：**lvzhiwei 起项目 → lianni/aijing 出原型与视觉 → lizhuang 做课堂场景与管理统计 → 本人（4 月起）负责把 mock 前端与 AI 能力真正落地成可用系统**，重心是备课、批改、学伴三个 AI 模块的端到端实现，以及移动端全量对接。
+一句话：**lvzhiwei 起项目 → lianni/aijing 出原型与视觉 → lizhuang 做课堂场景与管理统计 → 李超（4 月起）负责把 mock 前端与 AI 能力真正落地成可用系统**，重心是备课、批改、学伴三个 AI 模块的端到端实现，以及移动端全量对接。
 
 ---
 
@@ -534,7 +539,7 @@ lizhuang (02-03月)  课堂场景（智能上课/展示汇报/分组讨论/语�
 
 **learnspace（课程空间）** 是网梯科技的在线教育平台，面向高校继续教育与网络教育。核心抽象是「组（group）+ 用户 + 教学活动」：组可以是课程或班级，用户在不同组内可有不同角色（0 学生 / 1 教师），教学活动包括作业、视频、直播、讨论、自测、考试、问卷。支持多站点（siteCode）隔离，**一套代码服务多个院校站点**。
 
-| 仓库 | 职责 | 技术栈 | 本人提交 |
+| 仓库 | 职责 | 技术栈 | 李超提交 |
 |---|---|---|---|
 | `learnspace-rest-api` | 后端主服务，30+ Maven 子模块 | Spring Boot + JDK 8、Spring Security + OAuth2、MyBatis-Plus + MySQL 8、Druid、Redis、RocketMQ、**Neo4j** | 15 |
 | `discuss-web` | 答疑/讨论/评价前端（PC + mobile 双端） | Vue 2 + Element UI | 11 |
@@ -544,17 +549,180 @@ lizhuang (02-03月)  课堂场景（智能上课/展示汇报/分组讨论/语�
 | `learnspace-learning-web` | 学习端/教学设计前端 | Vue 2 + Element UI + i18n | 2 |
 | `learnspace-xxl-job-executor` | XXL-JOB 定时任务执行器 | Spring Boot + XXL-JOB + 动态数据源 | 1 |
 
-rest-api 采用 `*-api`（接口定义）+ `*-service`（业务实现）分离。本人触及的模块：common、discuss-api/service、learning-api/service、video-service、open-api、sdk-client、sdk-common。
+rest-api 采用 `*-api`（接口定义）+ `*-service`（业务实现）分离。李超触及的模块：common、discuss-api/service、learning-api/service、video-service、open-api、sdk-client、sdk-common。
 
 **关于这个平台的 MQ 与 Redis 体系**（用于界定他的工作边界）：
 
-learnspace 有一套规模不小的 RocketMQ 体系 —— 4.x 自建 NameServer 与 5.x 阿里云双客户端共存（靠 `ROCKETMQ_CLIENT_TYPE` 环境变量切换）、45+ topic 分公共/对外推送/AI 任务/知识库四类、12 个 producer group、8 个 consumer group、两层 siteCode 隔离（发送前查 `mq_topic` 表判订阅关系 + 消费时按 `SiteMqMsg.siteCode` 路由到各站点独立回调地址）、基于 RocketMQ `uniqID` 的消费幂等（Redis 标记 TTL 2 小时）、自定义延迟重试阶梯 `30s → 5m → 30m → 1h → 2h → 2h`（最多 6 次，不用死信队列而是落 `mq_message_send` 表供人工排查）。
+learnspace 有一套规模不小的 RocketMQ 体系 —— 4.x 自建 NameServer 与 5.x 阿里云双客户端共存（靠 `ROCKETMQ_CLIENT_TYPE` 环境变量切换）、12 个 `*TopicEnum.java` 中的 topic 字面量去重后为 66 个，分公共/对外推送/AI 任务/知识库四类、多个 producer/consumer group、两层 siteCode 隔离（发送前查 `mq_topic`/`mq_topic_site` 判订阅关系 + 消费时按 `SiteMqMsg.siteCode` 路由到各站点独立回调地址）、基于 RocketMQ `uniqID` 的消费幂等（Redis 标记 TTL 2 小时）。对外推送的 4.x 分支自定义延迟阶梯为 `30s → 5m → 10m → 30m → 1h → 2h`；5.x 分支则返回失败交给 Broker 重试，二者都把每次投递结果落 `mq_message_send` 表供排查。
 
-Redis 侧同样成体系：站点配置缓存（事件驱动失效）、视频观看时钟（7 天）、AI 任务状态机（2 小时）、AI 熔断失败计数（10 分钟）、短信限流（60 秒）、pageToken（60 秒）等，key 普遍带 siteCode 做多站点隔离。
+Redis 侧同样成体系：站点配置缓存（事件驱动失效）、视频观看时钟（7 天，时间片记录本身 24 小时）、AI 任务状态机（按业务设置 TTL）、AI 熔断失败计数（默认 10 分钟）、短信限流（60 秒）、pageToken（60 秒）等，key 普遍带 siteCode 做多站点隔离。
 
 **这两套体系基本不是他的工作面**。核实结果：15 笔 rest-api 提交中没有任何一笔改动 MQ 生产者或消费者代码；触及 Redis/缓存的 5 笔中，4 笔是**清缓存**（SDK 批量接口 3 笔 + 课程发布 1 笔），只有知识图谱异步化那笔是**自己设计 Redis 用法**（状态机）。admin-api 的「MQ Topic 管理」也被他在权限下放设计文档里主动列入「本期不包含」。
 
 记录这条边界的意义：他在这个平台上的定位是**专项需求交付者，用既有基础设施解决自己需求范围内的问题**，而不是基础设施的维护者。把平台的技术栈规模当成个人能力证明会失真 —— 反过来，`oneClickGenerateStatus` 那个状态机虽然只有几十行，却是他独立完成的完整设计（key 隔离 / 三态 / TTL 兜底 / 缺值默认方向），更能说明水平。
+
+#### Redis 与 MQ 基础设施架构（全仓源码核验）
+
+这一节描述的是 `learnspace-rest-api` **平台现状**，不改变上面的个人贡献边界。扫描覆盖根 Maven 工程内除 AI Study 独立骨架外的 common、learning、study、video、homework、discuss、mobile、open-api、message-pusher、pack-server、operate-log、questionnaire、meeting、test 与 token-server 等模块。
+
+**基础设施规模与分层**：
+
+| 层次 | 源码事实 | 架构作用 |
+|---|---|---|
+| Redis 客户端 | `learnspace-common` 依赖 `whatycache 4.2.2`；`redis.yaml` 使用 Redisson `singleServerConfig`，连接池 500、最小空闲 24 | 公司缓存框架统一连接、序列化与 KV/Hash 操作，业务代码不直接持有 `RedissonClient` |
+| Redis 部署 | 14 个可部署模块带 `redis.yaml`；Maven profile 将 `projectName`、server、`redis.db` 过滤进去 | `projectName` + 逻辑 cache name + 业务 key 做命名隔离；环境再用 db 号隔离。生产快照多数共享 db16，并非“每个模块一个 db” |
+| Redis 门面 | `CacheUtil` 使用逻辑 cache `learnspace-rest-api`；`LearnspaceCacheUtil` 使用 `whaty_learn_space` | 前者偏公共/SDK/鉴权/MQ，后者偏课程空间、学习时长和课程设置；都提供 String/KV 与 Redis Hash 操作 |
+| MQ 客户端 | 13 个模块同时依赖 `rocketmq-client` 4.x 与 `rocketmq-client-java` 5.x | 支持旧自建 NameServer 与阿里云 5.x 迁移共存；生产 profile 已配置 `client-type: ali`，运行时仍可被环境变量覆盖 |
+| Topic 治理 | 12 个 `*TopicEnum.java` 共 120 个声明，topic 字面量去重后 66 个；公共枚举本身有 55 个 | 公共、模块内部、对外推送、打包、学习记录和专用高流量 topic 分层管理 |
+| 外推中心 | `learnspace-message-pusher` 订阅 31 个外部 topic，按站点查回调地址并调用院校业务系统 | 把内部事件转换成站点级 HTTP 回调，生产者无需直接依赖外部系统 |
+
+```mermaid
+flowchart LR
+    biz["业务模块\nlearning / study / video / homework / discuss"]
+    cache["WhatyCache / Redisson\nCacheUtil + LearnspaceCacheUtil"]
+    sub["topic_site_subscribe::{siteCode}::{topic}\nRedis 命中；未命中查管理库"]
+    topicdb[("mq_topic + mq_topic_site")]
+    svc["各模块 MqService\n校验 topic + SiteMqMsg 封装"]
+    selector{"生产者选择"}
+    legacy["RocketMQ 4.x\nDefaultMQProducer / NameServer"]
+    ali["RocketMQ 5.x\n阿里云 endpoints + AK/SK"]
+    dedicated["5.x 专用实例\n视频学习记录高频通道"]
+    inner["模块消费者\nList<MessageConsume> 分发"]
+    pusher["message-pusher\nTopicDataProvider 补全数据"]
+    callback["院校站点 dataReceiveUrl\nHTTP callback"]
+    sendlog[("mq_message_send\n站点分库 + 年/季度分表")]
+
+    biz --> cache
+    biz --> svc
+    svc -->|仅对外 topic| sub
+    sub --> cache
+    sub -.未命中.-> topicdb
+    svc --> selector
+    selector --> legacy
+    selector --> ali
+    selector -->|专用 topic 且已启用| dedicated
+    legacy --> inner
+    ali --> inner
+    dedicated --> inner
+    legacy --> pusher
+    ali --> pusher
+    dedicated --> pusher
+    pusher --> callback
+    pusher --> sendlog
+```
+
+**Redis 的四类职责**：
+
+| 职责 | 代表 key / TTL | 处理模式 |
+|---|---|---|
+| 查询加速与配置快照 | 站点/课程设置、课程目录、location、用户班级、资源时长、视频签名、机器人配置；TTL 按业务设置，部分无 TTL | 手工 cache-aside：`get → 查库 → put`；数据变更后显式 `remove`，没有依赖 Spring Cache 注解 |
+| 学习热状态 | `learn:new-watch-record:{10分钟时间片}:{siteCode}:{userId}:{courseId}:{itemId}` 24 小时；用户物理时钟和 reportSeq 7 天 | Redis Hash 保存累计时长、位置、终端、最近落库时间；跨时间片迁移，接口重试与乱序请求可直接返回缓存结果 |
+| 防重、限流与短凭证 | MQ messageId/uniqID 1~2 小时，pageToken 60 秒，短信验证码 5 分钟、短信冷却 60 秒，学习上报频率记录 5 分钟 | 共享状态让多实例看到同一结果；MQ 标记在业务处理成功后写入，重复消息直接确认成功 |
+| 状态机与容错 | 知识图谱 running/success/failed、AI 视频总结/自动填补/课程生成、AI 熔断失败计数默认 10 分钟、半开锁默认 30 秒 | Redis 不只是结果缓存，还承载异步任务状态、熔断窗口和防重入状态；TTL 负责异常退出后的自动恢复 |
+
+缓存 key 的主维度通常是 `siteCode + courseId + userId/itemId`；少量与域名绑定的能力再加 `host`。这使同一个 Redis 集群可以服务多个院校、多课程和多实例，但也意味着**写路径必须精确清掉所有逻辑 cache 下的关联 key**。例如站点 Topic 订阅缓存使用无 TTL 的 `put`，由 `open-api/SiteController.clearSiteCache` 遍历 Topic 枚举主动失效；课程设置和 SDK 批量写接口则需要同时清 `CacheUtil` 与 `LearnspaceCacheUtil`。
+
+**MQ 生产端：统一接口、双客户端与专用通道**
+
+各业务模块都定义小型 `MqProducer` 接口，向上只暴露普通消息、延迟消息、客户端类型和初始化状态；`MqConfiguration` 按以下优先级选实现：
+
+```text
+ROCKETMQ_CLIENT_TYPE 环境变量
+    > {module}-mq.client-type 配置
+    > legacy 默认值
+```
+
+- 4.x 实现使用 `DefaultMQProducer + nameServer + producerGroup`，延迟消息直接写 RocketMQ delay level。
+- 5.x 实现使用 endpoints、namespace 与会话凭据，延迟级别经 `CommonUtils.getDelayDurationByLevel` 转换成绝对 `deliveryTimestamp`，保持调用方语义不变。
+- `study`、`video` 和 `message-pusher` 还有一套 5.x dedicated 配置。`DedicatedMqTopicEnum` 当前包含学习记录与高频学习时长 topic；生产者选择器优先专用实例，不可用时降级到普通实例。仓库生产 profile 中 dedicated 为开启状态，但仍支持环境变量 `ROCKETMQ_USE_DEDICATED_MQ` 覆盖。
+- 跨站点事件统一封装为 `SiteMqMsg { siteCode, body }`。内部 topic 直接发送；对外 topic 先查 `mq_topic/mq_topic_site`，未订阅即视为无需发送，从源头减少无效消息。
+
+**MQ 消费端：Topic 订阅、策略分发与 Redis 幂等**
+
+4.x 消费者用 `DefaultMQPushConsumer`，5.x 使用 `PushConsumer`；两套消费者根据同一个 client-type 互斥初始化，并从各模块 Topic 枚举生成订阅表。Listener 不直接堆叠业务判断，而是注入 `List<MessageConsume>`，逐个调用支持该 topic 的处理器，覆盖成绩计算、资源完成、数字教材、机器人知识库、AI 课程生成、作业批阅和视频进度等任务。
+
+典型消费语义是 **at-least-once + Redis 时间窗幂等**：
+
+1. 取 RocketMQ `uniqID/messageId`，先查 Redis；存在则返回成功。
+2. 解析 `SiteMqMsg`，按 `siteCode` 切换站点数据源，再交给 Topic 对应处理器。
+3. 业务处理完成后写 Redis 标记，常见 TTL 为 2 小时。
+4. JSON 格式错误通常直接确认成功，避免毒消息无限重试；业务异常是否重试由模块 Listener 决定。
+
+这里不是全局 exactly-once：业务副作用完成后、Redis 标记写入前若进程退出，消息仍可能重放，因此核心落库仍需按业务主键或累计值保证幂等。同时，不同模块的异常确认策略并未完全统一：study 的 4.x/5.x Listener 会返回重试，learning 的通用 Listener 捕获异常后仍返回成功。文档不能把“有 Redis 去重”写成“所有消息绝不丢、绝不重复”。
+
+**Redis + MQ 的代表链路：视频观看记录**
+
+这是两套基础设施耦合最深的一条高频链路：
+
+```mermaid
+sequenceDiagram
+    participant Web as 学习端周期上报
+    participant API as VideoWatchRecordService
+    participant Redis as Redis Hash/时钟
+    participant MQ as 专用 RocketMQ 5.x
+    participant Consumer as VideoProgressConsumer
+    participant DB as 站点业务库
+
+    Web->>API: watchDuration + position + sessionId/reportSeq
+    API->>Redis: 查重/乱序检查 + 用户物理时钟 + 10分钟时间片
+    API->>Redis: 写累计时长与 lastPosition（记录24h，时钟7d）
+    alt 首次上报或 pageLeave
+        API->>DB: 同步落库
+        alt 同步落库失败
+            API->>MQ: 降级发送 save_learn_record_with_progress
+        end
+    else 距上次落库超过2分钟
+        API->>MQ: 异步发送 save_learn_record_with_progress
+    end
+    MQ->>Consumer: SiteMqMsg + timeSlot
+    Consumer->>Redis: messageId 去重；向后查最多15个时间片
+    Consumer->>DB: 累计记录与完成状态落库
+    Consumer->>Redis: 回写 lastPersistTime + 2小时消费标记
+```
+
+这条链路的设计重点不是简单“把写库改异步”：Redis 先接住高频上报并维护服务端可信时钟；首次与离开页面直接写库保证关键节点及时落盘；周期上报每两分钟异步刷库；同步失败再发 MQ；消费延迟导致原时间片迁移时，消费者会从消息时间片向后搜索最多 15 个时间片。性能、用户离场可靠性和消息延迟三种情况都有单独处理。
+
+**对外消息推送与重试**
+
+`message-pusher` 是独立的反腐/适配层：它消费 `MqOuterTopicEnum`，先用 `TopicDataProvider` 按事件中的业务 ID 补齐最终数据，再根据 `siteCode` 找站点 `dataReceiveUrl`，通过 `CallbackService` 调外部系统。推送成功后写 2 小时 Redis 幂等标记；无论成功、失败或重试，都会记录 `msgId`、父消息 ID、站点、回调地址、Topic、内容、状态与失败原因。
+
+- 4.x 分支捕获可重试 `ServiceException` 后，手工创建下一条延迟消息，并用 `PARENT_MSG_ID` 串联重试链。当前 level 序列 `{4,9,14,16,17,18}` 映射为 `30秒 → 5分 → 10分 → 30分 → 1小时 → 2小时`，共最多 6 次延迟重投。
+- 5.x 普通与 dedicated 分支不手工复制消息，而是返回 `ConsumeResult.FAILURE` 交给 Broker 重投；实际最大次数和死信策略由阿里云实例配置决定，源码中没有统一写死。
+- `mq_message_send` 通过 ShardingSphere 按 `site_code` 分库、按 `send_date` 年/季度分表，物理表范围预建到 `2035`，解决长期外推日志单表增长问题。
+
+**两张名称相近但职责不同的消息表**：
+
+| 表 | 本仓库中的职责 | 边界 |
+|---|---|---|
+| `mq_message` | 业务事务中写入 PENDING 任务，类型包括作业成绩、资源完成率、学习时长、云视频信息等 | 当前仓库只找到写入服务和状态模型，未找到轮询执行器；它是数据库任务队列/Outbox 的写入端，不能仅凭本仓源码声称完整消费闭环 |
+| `mq_message_send` | message-pusher 的外部 HTTP 投递审计与失败留痕 | 它不是 Broker 死信队列；4.x/5.x 重试仍由各自 Listener/Broker 机制完成，表只负责可追踪性和人工排查 |
+
+**当前实现边界与运维注意点**：
+
+1. 多个 Producer 在配置缺失、未初始化时会记录日志并按“软关闭”处理，部分实现甚至返回 `true`。这保证本地或无 MQ 环境能启动，但调用方不能仅凭 boolean 断言消息一定进入 Broker。
+2. Redis 位于 pageToken、短信限流、学习时钟和 MQ 幂等的关键路径，不是完全可丢的查询缓存。仓库多数调用没有统一的 Redis 熔断/降级层，Redis 故障的影响会因业务链路不同而扩大。
+3. Topic 订阅缓存、部分站点/课程配置使用无 TTL 缓存，正确性依赖变更事件主动清理；新增写接口时必须同步梳理所有 cache namespace 和 key。
+4. 4.x 与 5.x 的延迟、重试和异常确认语义只做了接口层兼容，没有形成全模块一致策略；迁移验证应按 producer/consumer/topic 逐条进行，不能只验证客户端能连接。
+5. 部分环境配置文件包含连接地址和凭据字段，扫描时还发现了源码内明文敏感配置。本文不记录任何具体密钥；上线治理应改为密钥中心或环境变量注入，并轮换已进入版本历史的凭据。
+
+**关键源码索引**：
+
+| 文件 | 作用 |
+|---|---|
+| `learnspace-common/.../cache/CacheUtil.java` | 公共 cache namespace、KV/Hash API、公共 key 工厂 |
+| `learnspace-common/.../cache/LearnspaceCacheUtil.java` | 课程空间 cache namespace、学习与课程设置 key 工厂 |
+| `learnspace-*/src/main/resources/redis.yaml` | Redisson 单机连接池与 Maven profile 占位配置 |
+| `learnspace-common/.../enums/MqTopicEnum.java` | 55 个公共 Topic 的白名单与说明 |
+| `learnspace-common/.../enums/DedicatedMqTopicEnum.java` | 专用 RocketMQ topic 路由集合 |
+| `learnspace-learning-service/.../mq/config/MqConfiguration.java` | 4.x/5.x Producer 选择模板 |
+| `learnspace-study-service/.../mq/selector/DefaultMqProducerSelector.java` | 普通/专用 Producer 路由与降级 |
+| `learnspace-study-service/.../mq/consumer/DedicatedMessageListener.java` | 专用消息 Redis 去重与失败重试信号 |
+| `learnspace-study-service/.../service/impl/VideoWatchRecordServiceImpl.java` | Redis 学习时钟、时间片、同步/MQ 持久化决策 |
+| `learnspace-study-service/.../mq/consumerservice/impl/VideoProgressConsumerImpl.java` | 视频进度时间片查找、落库与 Redis 回写 |
+| `learnspace-message-pusher/.../consumer/MessagePushMessageListener.java` | 4.x 外推、手工延迟重试和投递留痕 |
+| `learnspace-message-pusher/.../consumer/AliMessagePushMessageListener.java` | 5.x 外推与 Broker 重试信号 |
+| `learnspace-common/.../config/datasource/DynamicDataSourceRegister.java` | `mq_message_send` 分库分表规则 |
+| `learnspace-common/.../service/impl/MqMessageServiceImpl.java` | `mq_message` 数据库任务写入端 |
 
 ### 4.2 业务线 A：答疑评论公开机制改造（跨 4 仓库全链路）
 
@@ -625,7 +793,7 @@ flowchart TD
 
 | 接口 | 时间 | 内容与技术要点 |
 |---|---|---|
-| **三个批量配置接口** | 06-23 ~ 07-06（迭代 4 次） | `batchUpdateCourseTemplate`（批量更新课程模板）、`batchSetSpeedSwitch`（批量设置不允许倍速）、`batchSetDragSwitch`（批量设置防拖拽）。公共逻辑抽 `doBatchSetCourseSwitch`；配 4 个测试类；`e7a7bdf8c` 明确记录一条安全修复 —— **补 courseId 校验**（批量接口不校验 courseId 归属会造成跨课程越权写入）；`838f1354d` 同步升三个 pom 版本号发版 |
+| **三个批量配置接口** | 06-23 ~ 07-06<br>（迭代 4 次） | `batchUpdateCourseTemplate`（批量更新课程模板）、`batchSetSpeedSwitch`（批量设置不允许倍速）、`batchSetDragSwitch`（批量设置防拖拽）。公共逻辑抽 `doBatchSetCourseSwitch`；配 4 个测试类；`e7a7bdf8c` 明确记录一条安全修复 —— **补 courseId 校验**（批量接口不校验 courseId 归属会造成跨课程越权写入）；`838f1354d` 同步升三个 pom 版本号发版 |
 | **getTestScore 增加时间字段** | 07-17 | `TchStuElectiveMapper.xml:359` `LEFT JOIN test_exam_history`，取 `START_EXAM_DATE` 与 `EXAM_TIME`，DATE_FORMAT 统一格式。用 **LEFT JOIN 而非 INNER JOIN** —— 无考试历史记录的成绩仍需返回 |
 | **getStudentLearnRecord 增加终端类型** | 08-03 | Mapper 补 `terminal_type`，`LearnRecordManageServiceImpl` **四个分支**（四种轨迹拼装场景）各补一次 put |
 | **queryStudentLearningTrack 学习轨迹** | 08-10 | 返回**未聚合的原始单次学习记录**，与已有聚合接口区分定位。`LearnRecordMapper.xml:28` 根据 itemId 是否传入**动态切换 FORCE INDEX**（传了走 `idx_learn_video_study_record_1`，没传走 `i_ssoUserId`）—— 说明遇到过 MySQL 选错索引的性能问题。客户端侧就做非空前置校验，快速失败不发无效请求。文档明确写了 terminalType 取值含义（0 pc / 1 app / 2 其他 / 11 后端程序生成 / 12 后端补偿轨迹） |
@@ -1150,8 +1318,8 @@ flowchart TD
     ls_learn --> ls_db
     ls_db -->|学习时长汇总| yunyan
     ls_db -->|流量产生| yunyan
-    yunyan -->|"学习时长（小时）"| cost_calc
-    cdn -->|"流量（GB）"| cost_calc
+    yunyan -->|"学习时长(小时)"| cost_calc
+    cdn -->|"流量(GB)"| cost_calc
     cost_calc -->|ratio 判定| alert
     
     ls_db --> sdk
@@ -1168,20 +1336,20 @@ flowchart TD
 ```mermaid
 flowchart LR
     prep["备课\nPPT/PDF"]
-    lessonClass["上课"]
+    classroom["上课"]
     hw["作业"]
     ai["AI 批改\nDeepseek-R1\nsteps + quote"]
     stu["学生查看\n步骤批注 + 高亮"]
     mate["学伴\n持续对话"]
     mobile["移动端\nVant 4"]
     
-    prep --> lessonClass --> hw --> ai --> stu
+    prep --> classroom --> hw --> ai --> stu
     mate --> mobile
     
     style ai fill:#f0e8f8,stroke:#7a4c9c
 ```
 
-**数据可信链条**（本人在三侧的工作相互支撑）：
+**数据可信链条**（李超在三侧的工作相互支撑）：
 
 ```mermaid
 flowchart LR
@@ -1289,7 +1457,7 @@ bxqk 分摊口径直接体现这个关系：`某站点bxqk分配流量 = bxqk总
 
 **learnspace —— Redis，用框架既有工具，重点是「怎么清」**
 
-平台本身有完整的 Redis 体系（多 db 隔离、`CacheUtil`/`LearnspaceCacheUtil` 两套封装、key 带 siteCode 隔离）。他接入的方式是**用框架工具解决自己范围内的问题**，不重建：
+平台本身有完整的 Redis 体系（WhatyCache/Redisson、`projectName` 与逻辑 cache name 隔离、`CacheUtil`/`LearnspaceCacheUtil` 两套封装、key 带 siteCode 隔离）。他接入的方式是**用框架工具解决自己范围内的问题**，不重建：
 
 - 知识图谱异步化（`6d5c048ad`）：自己设计了一个 `oneClickGenerateStatus::{siteCode}:{courseId}` 的三态状态机（running/success/failed），TTL 30 分钟兜底防状态永久残留。这是他在 learnspace 侧**唯一一处自己设计 Redis 用法**。
 - SDK 批量接口（`e7a7bdf8c`，6 月）+ 课程发布清缓存（`78f2eb215`，8 月）：每次改动课程数据后主动清 `CacheUtil` 与 `LearnspaceCacheUtil` 两套缓存的对应 key（一次最多清 6 个 key）。不需要设计缓存，只需要知道「改了哪里必须清哪里」。
@@ -1525,9 +1693,297 @@ flowchart LR
 
 ---
 
-## 六、附录
+## 六、业务线四：LearnSpace AI 原生学习平台
 
-### 6.1 提交清单速查
+> **扫描范围**：`D:\idea_project\learnspace-rest-api\learnspace-ai-study-api`、`D:\idea_project\learnspace-rest-api\learnspace-ai-study-service`、`D:\idea_project\learnspace-ai-study-web`。
+> **角色定位**：核心设计者、架构负责人、全栈开发者。该节以当前工作树源码、迁移脚本、设计文档和测试用例为证据；本项目尚未按本文开头既有的 git 作者口径并入 141 次提交统计。
+
+### 6.1 项目定位：把 AI 对话做成可推进的学习系统
+
+LearnSpace AI Study 不是一个把聊天窗口嵌进课程页的 AI 插件，而是一套面向学生的 **AI 原生课程学习平台**。它把课程数据、学生选课关系、入课测评、知识点掌握度、学习会话、GenUI 交互、每日任务和游戏化统计放进同一条可回写链路：
+
+```mermaid
+flowchart LR
+    entry["登录 / 选课"] --> ob["入课引导\n课程概览 + 诊断测评 + 学习路径"]
+    ob --> learn["AI 学习会话\n多 Agent + SSE 流式对话"]
+    learn --> card["GenUI 交互\nquiz / code / video / concept"]
+    card --> state["学习状态回写\n掌握度 / 进度 / 学习时长"]
+    state --> task["任务与激励\n每日任务 / XP / streak / 成就"]
+    state --> context["下一轮学情上下文"]
+    context --> learn
+```
+
+核心产品闭环是：**测评了解学生 → 生成学习画像与路径 → 围绕当前知识点对话 → 用结构化卡片让学生练习 → 将行为转换为掌握度与统计 → 重新注入下一轮提示词**。因此，AI 输出不是最终结果，而是学习状态机的一个输入。
+
+### 6.2 三仓库边界与工程规模
+
+物理上仍属于 LearnSpace REST API 多模块 Maven 工程，新增 AI 域的 API 与 Service 两个模块，再配套独立 Vue 前端：
+
+| 工程 | 边界与职责 | 扫描规模 |
+|---|---|---:|
+| `learnspace-ai-study-api` | Spring Boot 启动、Controller、DTO、OAuth2 资源服务器、SSE 线程池、统一响应与异常 | 27 个 Java 文件，约 1,867 行；18 个 Controller；6 个配置文件 |
+| `learnspace-ai-study-service` | 业务服务、实体、Mapper、Prompt/协议解析、掌握度与任务规则、MQ 抽象、数据库迁移 | 212 个 Java 文件，约 12,489 行；21 个 Mapper XML；11 个迁移脚本；4 个 Java 测试类 |
+| `learnspace-ai-study-web` | Vue 3 单页应用，PC/移动端页面、Vuex 领域状态、Axios/SSE、GenUI 卡片、游戏化反馈 | 223 个 `src` 文件；105 个 Vue 文件；23 个 API service；27 个 Vuex 模块文件；13 个前端测试文件 |
+
+后端遵循 LearnSpace 既有的 **`*-api` 接口层 + `*-service` 实现层**，Service 依赖 `learnspace-common`，并按需复用 `learnspace-video-service` 的 `CsResourceService` 解析真实视频/文档地址。API 模块通过 `@MapperScan` 同时扫描 AI、公共和视频 Mapper，启动时排除 Spring Boot 默认数据源，由 LearnSpace 的 `DynamicDataSourceRegister` 接管站点数据源。
+
+技术栈组合：
+
+| 层次 | 选型与作用 |
+|---|---|
+| 后端运行时 | Spring Boot + JDK 8；Spring MVC/Validation；Spring Security OAuth2 Resource Server |
+| 数据访问 | MyBatis-Plus、MySQL、Druid、动态数据源；旧业务表只读复用，AI 状态通过扩展表/独立表承载 |
+| AI 接入 | `com.whaty.learnspace.common.ai.AiModelRouter` → CBB AI 网关；模型别名可配置，默认 `qwen3.7-plus` |
+| 流式与并发 | `SseEmitter` + `sseChatExecutor`，默认核心 50 / 最大 200 / 队列 200，满载 `CallerRunsPolicy` 形成背压 |
+| 缓存 | LearnSpace WhatyCache/Redisson 封装；统一 `CacheService`、Key 工厂和 TTL，缓存异常降级直读数据库 |
+| 异步骨架 | RocketMQ 5 客户端依赖、Topic/Consumer 抽象；默认 `mq.enabled=false`，生产者退化为日志实现，业务可同步降级 |
+| 前端 | Vue 3.5 + TypeScript + Vite 8 + Vuex 4 + Vue Router 4 + Element Plus；Markdown/DOMPurify/KaTeX/Prism |
+
+### 6.3 总体架构与端到端链路
+
+```mermaid
+flowchart TD
+    browser["PC / 移动端 Vue SPA"]
+    guard["Router Guard\nToken + courseId + onboarding 流转"]
+    api["learnspace-ai-study-api\nController / DTO / SSE"]
+    service["learnspace-ai-study-service\n领域服务 / 协议解析 / 规则引擎"]
+    legacy[("LearnSpace 既有表\n课程 / 目录 / 选课 / 资源 / SSO")]
+    ai[("CBB AI 网关\nAiModelRouter")]
+    cache[("Redis / WhatyCache")]
+    db[("AI 扩展 + 独立业务表")]
+    mq["RocketMQ（可选）\n默认日志降级"]
+
+    browser --> guard --> api --> service
+    service --> legacy
+    service --> db
+    service <--> cache
+    service --> ai
+    service -.-> mq
+    api -->|SSE delta / genui / stats / handoff / done| browser
+```
+
+一次完整的学习请求可以还原为以下顺序：
+
+1. **上下文建立**：前端 URL 只携带 `courseId`，token 通过 `rest_token` Cookie/本地存储取得；后端从 OAuth2 当前用户的 `suId` 反查 `sso_user_detail → pr_tch_stu_elective`，得到唯一 `enrollmentId`。
+2. **课程上下文**：`GET /course-context` 一次返回课程、章节、当前知识点、完成态、总体进度/掌握度和游戏化阈值。路由守卫只负责鉴权、上下文加载和引导流转，缺少 `courseId` 或上下文加载失败交给页面友好提示，避免跳转死循环。
+3. **会话准备**：`POST /sessions` 创建或恢复 active 会话，锚定 `chapterId/kpId/agentType`；进入页面加载历史消息和该会话的 GenUI 交互状态。
+4. **AI 调用**：后端先完成 session 校验、用户消息落库、最近 20 条历史读取，再调用模型，避免 AI 长 IO 占用数据库连接。含图片时走识图接口；含附件时用 Apache POI 抽取 doc/docx/xls/xlsx/pptx 文本拼接到本轮消息。
+5. **结构化处理**：依次解析并从正文剥离 `handoff`、`mastery`、`followup`、`genui` 四类协议；视频卡片再用真实课程资源重建，找不到匹配资源时丢弃卡片并生成兜底引导。
+6. **持久化与状态推进**：保存 Agent 消息及 GenUI JSON，按 mastery 信号推进知识点掌握度，按会话时长更新统计，评估是否触发自动委派或知识点考核入口。核心消息失败抛错，统计/委派等辅助动作尽量 best-effort，不让外围故障破坏对话主链路。
+7. **前端增量渲染**：SSE 由纯函数 `SseDecoder` 按空行分帧，`delta` 逐字更新，`genui`/`stats`/`handoff`/`done` 分类型提交 Vuex；流式期间和终态都清洗协议块，避免模型自评 JSON 泄漏到 UI。
+8. **交互回写**：Quiz 答题、代码运行、视频进度分别调用 `/genui` 接口，记录 `genui_interaction`，写入 XP、学习时长、答题统计和 mastery，并在掌握阈值跨越时返回下一知识点/下一章推进信号。
+
+### 6.4 后端分层与平台适配
+
+#### API 层：稳定的学生端契约
+
+Controller 按业务域拆分，统一返回 `{code, message, data, timestamp, requestId}`；`GlobalExceptionHandler` 只作用于 `aistudy.controller`，不会污染 LearnSpace 其他模块的响应体系。主要接口簇如下：
+
+| 业务域 | 主要接口 |
+|---|---|
+| 课程与引导 | `/courses`、`/course-context`、`/onboarding/courses/{courseId}/overview`、`assessment`、`learning-path`、`onboarding` |
+| 会话与 Agent | `/sessions`、`/sessions/{id}/messages`、`/agents`、`/agents/sessions/{id}/switch` |
+| 对话 | `POST /chat`，`stream=false` 返回 JSON，默认 `stream=true` 返回 SSE |
+| 知识图谱与掌握度 | `/knowledge-graph`、`/assessment/kp/{kpId}/quiz` |
+| GenUI | `/genui/interactions`、`/genui/quiz/{id}/answer`、`/genui/code/{id}/run`、`/genui/video/{id}/progress` |
+| 资源与播放器 | `/resources`、`/player/aliplayer-license` |
+| 任务/统计/激励 | `/tasks`、`/stats`、`/gamification`、`/emotional-support`、`/answer-records` |
+
+#### OAuth2、站点上下文与动态数据源
+
+- `ResourceServerConfig` 沿用 LearnSpace JWT 公钥与 `CookieTokenExtractor`，统一从 `rest_token` 取 token；除健康检查等公开入口外，AI API 全部要求认证。
+- `CourseContextService` 把登录用户、课程 ID、选课记录、AI 扩展字段和课程概览组合成一个前端上下文，避免页面各自猜测身份或重复拼装。
+- AI API 启动类排除 `DataSourceAutoConfiguration`，由动态数据源注册器管理业务库；SSE 异步线程显式透传 `datasourceCode`，并在 `finally` 清理线程本地上下文，防止线程池复用时串站点。
+- 选课写入复用 `TchStuElectiveService`，学生身份使用 `suId`，而选课表的 `FK_STU_ID` 仍按旧系统约定写入 `sso_user_detail.ID`，由 Mapper 做身份转换。
+
+#### 缓存、降级与并发边界
+
+`CacheService` 统一封装读、写、删除和 `getOrLoad` 读穿透，课程概览、学习路径、知识点依赖、资源列表、今日统计/任务等均有集中 TTL。任何缓存异常只记录日志并回退数据库，缓存不是主流程单点。
+
+`SseExecutorConfig` 的专用线程池承接模型 IO，Tomcat 请求线程在返回 `SseEmitter` 后释放；队列与线程均耗尽时 `CallerRunsPolicy` 让提交线程执行，形成背压而不是静默丢请求。SSE 侧监听完成、超时、错误并设置取消标志，客户端断连时停止继续推送。
+
+### 6.5 AI 工程：Prompt、协议与多 Agent 编排
+
+#### Prompt 是可演进配置，不是散落字符串
+
+`prompts/ai-chat-prompts.yaml` 分为角色人格、工具增强、GenUI 输出规范、handoff 自评、mastery 自评、followup、考核出题和问候语生成等段落；`PromptTemplateService` 用 SnakeYAML 解析，内存缓存按配置 TTL 重新加载。Java 负责注入真实学情，YAML 负责规定表达风格和结构协议，形成“数据与表达解耦”。
+
+三种 Agent 不是三个学科模型，而是三种教学职责：`tutor` 负责深度讲解，`buddy` 负责情绪陪伴与轻松探索，`examiner` 负责出题、批改与追问薄弱点。会话系统记录 `agent_type`，历史消息保留自身 `agent_name`，切换后旧消息头像和人格不被当前 Agent 覆盖。
+
+#### 四类结构化协议把自然语言接入业务状态机
+
+| 协议 | 模型输出 | 后端动作 | 前端表现 |
+|---|---|---|---|
+| `genui` | `uiType + config` | 解析并持久化 `genui_data`；视频配置用真实资源重建 | Quiz/Code/Video/Concept 卡片 |
+| `mastery` | 学习相关、熟练度、是否讲全 | `MasteryService.applyLearning`，决定掌握度增益和考核入口 | 掌握度、下一步 CTA |
+| `followup` | 下一轮快捷问题数组 | 与视频兜底、后端业务引导合并去重限流 | 消息下方快捷回复 |
+| `handoff` | 本轮职责匹配度和推荐 Agent | 会话维护连续不匹配计数与冷却期，触发时只下发信号 | 插入过渡提示，复用已有切换链路 |
+
+协议解析器均有容错：缺块、非法 JSON、非法 Agent 或过长选项会回到安全默认值；正文与协议块分离，前端 `cleanAgentContent` 对流式中间态和终态各清洗一次，兼容协议块跨 SSE 分片的情况。
+
+#### 自动委派的职责边界
+
+`HandoffEvaluator` 默认以匹配度 `< 0.5` 作为非本领域，连续 3 轮才触发委派，中间命中一次即清零；触发后进入 5 轮冷却，避免 tutor/buddy/examiner 之间乒乓切换。后端**不直接改 `session.agent_type`**，只在 `handoff` SSE 事件里给出 `target_agent` 和友好文案，前端 `learning/switchAgent` 复用 350ms 防抖、AbortController 取消旧请求、乐观插入委派/打招呼消息的成熟链路。这是对双写和重复消息风险的主动收敛。
+
+#### SSE 流式链路的可用性处理
+
+`ChatController` 设置 `X-Accel-Buffering: no` 和 `Cache-Control: no-cache`，避免代理把 token 攒成整段；后端把 `delta`、`genui`、`stats`、`handoff`、`done` 分成事件，前端用 `fetch + ReadableStream` 而不是 Axios 读取流。非流式 fallback 用统一 API 返回后，前端以伪打字机恢复“正文先到、卡片/统计后到”的感知顺序。
+
+### 6.6 学习数据模型：兼容存量而非另起炉灶
+
+数据设计的核心判断是：课程、目录、选课、资源、SSO 都已有稳定业务主表，AI 不应复制一套课程树再靠同步维持一致性。`AI-STUDY-数据表清单.md` 明确记录了“复用旧表 + AI 扩展 + AI 独立业务表”的策略：
+
+```mermaid
+flowchart LR
+    course[(pe_tch_course)] --> info[(scorm_course_info)] --> item[(scorm_course_item\n章节目录树)]
+    user[(sso_user)] --> detail[(sso_user_detail)] --> elective[(pr_tch_stu_elective)]
+    item --> kp[(ai_knowledge_point\n独立知识点)]
+    kp --> rel[(ai_kp_resource_rel\n知识点-资源多对多)]
+    elective --> enrollExt[(ai_enrollment_ext\n当前KP/引导/总体掌握度)]
+    elective --> session[(learning_session)]
+    session --> message[(dialogue_message)] --> interaction[(genui_interaction)]
+    interaction --> stats[(learning_stats / xp_log / achievement)]
+```
+
+数据层分成四组：
+
+1. **只读复用的 7 张既有表**：课程 `pe_tch_course`、目录 `scorm_course_item`/`scorm_course_info`、选课 `pr_tch_stu_elective`、资源 `cs_resource`、身份 `sso_user`/`sso_user_detail`。
+2. **3 张扩展表**：`ai_kp_ext`（章节标记、难度、时长、前置关系）、`ai_enrollment_ext`（当前知识点、引导完成、总体掌握度）、`ai_resource_ext`（资源分级、访问热度、章节排序）。
+3. **知识点独立化的 2 张表**：V104 新建 `ai_knowledge_point` 与 `ai_kp_resource_rel`。知识点从原来与 SCORM 节点 1:1 死绑，改为独立 UUID 实体；同一资源可被多个知识点引用，`legacy_item_id` 保留迁移溯源并以唯一键保证幂等。
+4. **15 张 AI 独立业务表**：学生画像、XP/成就、单知识点掌握度、会话/消息/GenUI、每日任务/日统计、题库/答题记录、入课测评、金句与洞察模板等。旧版 `student/course/chapter/knowledge_point/course_enrollment/course_resource` 遗留表在 V100 中废弃，不再维护两套主数据。
+
+所有 AI 独立表使用字符串 UUID，跨旧表的关联列按现网 `VARCHAR(50)` 对齐；迁移脚本去除物理外键，依靠 Mapper/Service 校验和索引维护一致性。V105/V109 支持从 SCORM 树按课程迁移知识点和资源关系，可重复执行、不产生重复行。
+
+### 6.7 关键业务规则与学习状态闭环
+
+#### 入课测评与路径生成
+
+`OnboardingServiceImpl` 的题库解析顺序是“课程专属题组 → 通用题组 → 内置常量题兜底”，提交时严格按实际题组校验答案数量和选项值域，并以 enrollment 所属学生做越权校验。`LearningProfileBuilder` 将答案归一为五个维度（先验知识、时间预算、学习风格、目标取向、难度偏好），计算预计学时、教学风格、难度曲线和维度快照；`StrategyRuleEngine` 通过 Spring 注入的 `DimensionEvaluator` 列表按优先级产出策略文案，新增维度无需改引擎。
+
+引导完成具备幂等性：重复完成不会重复覆盖当前知识点；首次完成会定位首章首个知识点，并尝试生成今日任务。MQ 可用时发 `TASK_GENERATION`，默认不可用则同步调用 `DailyTaskService`，保证开发环境和无 MQ 环境仍可用。
+
+#### 知识图谱与知识点推进
+
+`KnowledgeGraphServiceImpl` 用前置依赖 JSON 构建“前置节点 / 当前节点 / 后继节点 / 固定长度链”视图，依掌握度 70% 判定 `done`；切换当前知识点时校验所有前置知识点是否达到阈值，并同步更新进行中会话的 `kp_id`，避免右栏进度与对话锚点割裂。依赖链按 `kpId + studentId` 缓存 10 分钟。
+
+#### 掌握度是单一数据源（SSOT）
+
+`MasteryServiceImpl` 把答题、视频、代码、阅读、对话统一归一为一次增量：
+
+```text
+gain = round(BASE_GAIN × 行为权重 × 难度系数 × AI质量系数 × 衰减系数)
+```
+
+- 答对/答错走答题路径并计入 `quiz_total/quiz_correct`，答题掌握度允许推进到 100%。
+- 视频、代码、阅读、聊天等非答题行为最多推进到 60%，剩余掌握度必须由答题贡献，避免“只聊天就满分”。
+- AI `proficiency` 映射到 0.5~1.5 质量系数；越接近上限，衰减系数越小，推进趋于收敛。
+- 每次 upsert 后重新计算 enrollment 下已学知识点平均值，写回 `ai_enrollment_ext.overall_mastery`。
+
+`GenuiServiceImpl` 是行为回写枢纽：Quiz 答题事务内同时写交互、XP、掌握度、答题统计，并评估知识点/章节推进；Code 运行增加学习时长并推进少量 mastery；Video 完成按真实进度增加 XP/时长、幂等完成 watch_video 任务并推进 mastery。
+
+#### 每日任务、XP 与资源热度
+
+每日任务不是随机三条文案，而是规则规划：当前知识点掌握良好时安排下一知识点视频，否则安排当前知识点视频；选择 enrollment 下未达 70% 的最弱知识点出题；按总体掌握度选择基础/常规/进阶阅读。XP 由 `XpRules` 统一定义，`xp_log` 记录来源，成就接口用数据库幂等判断首次里程碑。
+
+资源访问采用 5 分钟时间窗去重，优先 Redis，失败降级进程内 `ConcurrentHashMap`；MQ 可用时异步累加 `access_count`，不可用时直接更新。这一设计把“资源热度统计”与“打开资源主流程”解耦，并明确承认 Redis/MQ 不可用时的弱一致边界。
+
+### 6.8 前端架构：同一套领域状态覆盖 PC 与移动端
+
+前端不是页面堆叠，而是按通信、状态、组件、视图四层组织：
+
+```mermaid
+flowchart TB
+    view["Views / Components\nCourseLearn + MobileLearn + onboarding + overview"]
+    store["Vuex namespaced modules\nlearning / course / onboarding / genui / progress / ui ..."]
+    api["API service\nrequest/http + chat/SSE + domain services"]
+    backend["AI Study API"]
+    view --> store --> api --> backend
+    backend -->|统一响应| api
+    api -->|类型化数据 / SSE 事件| store
+    store --> view
+```
+
+#### 通信层与安全边界
+
+`api/http.ts` 注入 Bearer token，统一解包 `{code,message,data}`，对 20001/20003 清理 token 并去重提示；AbortController 取消被转换为错误码 -1，调用方静默忽略。普通接口走 Axios 的 `request.ts` 类型化封装，SSE 走 `fetch`，由 `SseDecoder` 处理任意切分的 UTF-8 文本、空行分帧、`[DONE]` 和残留 flush。
+
+#### Router Guard 与动态上下文
+
+`routes.ts` 同时维护 PC 与 `/m` 移动端路径，`guards.ts` 只做三件事：公开页放行、无 token 跳对应端登录、带 `courseId` 时幂等加载 `course/fetchContext` 并按 onboarding 完成态重定向。移动端路径表由 `pathsFor()` 统一选择，保证移动端不会被错误打回 PC 页面；缺课程参数不在守卫层硬拦截，由目标页面渲染 `MissingCourseView`。
+
+#### Vuex 领域状态与对话编排
+
+- `learning` 管理 session、Agent、消息、流式状态、思考过程、统计快照、历史会话和断线续聊；从历史消息恢复 GenUI/followup，查看历史会话时保持右栏学生当前真实进度不被历史会话误导。
+- `genui` 以 `messageId` 为 key 记录答题/运行/观看状态，刷新时调用 `/sessions/{id}/genui` 恢复交互；卡片分发器将 `quiz/code/video/concept` 映射到独立组件。
+- `course` 管理课程上下文、当前章节/知识点、引导完成态和后端下发的游戏化阈值；`knowledgeGraph`、`courseResources`、`progress`、`task`、`emotional`、`video` 分域维护学习页右栏与工具箱数据。
+- `ui` 是统一游戏化编排器：庆祝事件串行队列、里程碑 key 去重、streak 告急、XP 飞入，以及 `prefers-reduced-motion` 下的静态降级，避免多个组件各自播放造成重叠。
+
+PC `CourseLearn.vue` 与移动端 `MobileLearnView.vue` 复用同一套 store/API/领域类型，只替换布局外壳和交互方式；PC 侧是侧栏 + 主对话 + 右栏，移动端是状态区 + 对话列表 + 底部工具/历史抽屉，形成“一套业务状态、两套响应式体验”。
+
+### 6.9 质量保障、工程判断与贡献证据
+
+可见测试不是只测组件快照，而是覆盖跨层契约和容易回归的状态边界：
+
+| 领域 | 测试证据 |
+|---|---|
+| 后端协议 | `FollowupParserTest`、`MasteryParserTest`、`HandoffEvaluatorTest` 覆盖缺块/非法 JSON/连续触发/冷却/清零 |
+| 后端规则 | `MasteryServiceImplTest` 覆盖难度系数、答题/非答题上限、70% 跨阈值、考核一次置满 |
+| 前端通信 | `src/utils/__tests__/agentText.spec.ts` 覆盖协议块跨分片清洗、真实代码块不误删；路由守卫测试覆盖 PC/移动端重定向与缺参容错 |
+| 前端交互 | GenUI 卡片测试覆盖四类分发、答题正误、代码转义；统计组件/反馈组件测试覆盖进度、streak、庆祝状态 |
+
+从源码形态可以确认的核心贡献不是“做了若干页面”，而是建立了一套可持续演进的 AI 学习底座：
+
+1. **架构设计**：在既有 LearnSpace 多模块、动态数据源和旧表体系中落下独立 AI 域，采用 API/Service 分离、扩展表与独立知识点表，避免复制课程主数据。
+2. **AI 工程化**：设计 Prompt 配置协议、四类结构化输出解析、模型路由、SSE 事件模型、GenUI 真实资源重建和自动委派状态机，让模型能力可被程序校验和持久化。
+3. **学习科学规则落地**：把测评画像、前置依赖、掌握度增益、非答题上限、章节推进、每日任务和 XP 里程碑统一成可测试规则，而非散落在页面事件中。
+4. **可靠性与降级**：数据库 IO 与 AI IO 解耦，SSE 有专用线程池和取消标志，缓存/MQ/视频资源均有明确 fallback；辅助统计失败不阻塞核心对话。
+5. **全栈闭环交付**：前端 API/SSE、Vuex 领域状态、PC/移动端双壳、GenUI 卡片、历史恢复、自动委派和游戏化反馈与后端契约同步演进。
+6. **边界意识**：当前 MQ 默认是日志降级实现，代码卡片的 `/run` 是业务接口能力，源码没有证明存在隔离沙箱；知识图谱后继跨章补足仍留有 TODO；V109 虽声明用 `@course_id` 驱动单课程转换，实际 SQL 条件仍写死一门课程 ID，上线复用前应改为变量。把已实现、可降级和待完善边界写清楚，比把设计意图误写成生产能力更准确。
+
+### 6.10 关键文件索引
+
+```text
+后端启动与安全
+learnspace-ai-study-api/src/main/java/com/whaty/learnspace/LearnspaceAiStudyApiApplication.java
+learnspace-ai-study-api/src/main/java/com/whaty/learnspace/config/ResourceServerConfig.java
+learnspace-ai-study-api/src/main/java/com/whaty/learnspace/config/SseExecutorConfig.java
+learnspace-ai-study-api/src/main/java/com/whaty/learnspace/aistudy/common/GlobalExceptionHandler.java
+
+AI 对话与协议
+learnspace-ai-study-service/src/main/java/com/whaty/learnspace/aistudy/service/impl/ChatServiceImpl.java
+learnspace-ai-study-service/src/main/java/com/whaty/learnspace/aistudy/common/prompt/PromptTemplateService.java
+learnspace-ai-study-service/src/main/java/com/whaty/learnspace/aistudy/common/prompt/LearningContextBuilder.java
+learnspace-ai-study-service/src/main/java/com/whaty/learnspace/aistudy/common/handoff/HandoffEvaluator.java
+learnspace-ai-study-service/src/main/java/com/whaty/learnspace/aistudy/common/mastery/MasteryParser.java
+learnspace-ai-study-service/src/main/java/com/whaty/learnspace/aistudy/common/genui/GenUiParser.java
+learnspace-ai-study-service/docs/Agent自动委派切换方案.md
+
+学习状态与数据
+learnspace-ai-study-service/src/main/java/com/whaty/learnspace/aistudy/service/impl/OnboardingServiceImpl.java
+learnspace-ai-study-service/src/main/java/com/whaty/learnspace/aistudy/service/impl/MasteryServiceImpl.java
+learnspace-ai-study-service/src/main/java/com/whaty/learnspace/aistudy/service/impl/GenuiServiceImpl.java
+learnspace-ai-study-service/src/main/java/com/whaty/learnspace/aistudy/service/impl/KnowledgeGraphServiceImpl.java
+learnspace-ai-study-service/src/main/resources/db/migration/AI-STUDY-数据表清单.md
+learnspace-ai-study-service/src/main/resources/db/migration/V100__ai_study_uuid_tables.sql
+learnspace-ai-study-service/src/main/resources/db/migration/V104__ai_knowledge_point_tables.sql
+
+前端
+learnspace-ai-study-web/src/router/guards.ts
+learnspace-ai-study-web/src/api/chat.ts
+learnspace-ai-study-web/src/api/sse.ts
+learnspace-ai-study-web/src/store/modules/learning.ts
+learnspace-ai-study-web/src/store/modules/genui-actions.ts
+learnspace-ai-study-web/src/store/modules/ui-actions.ts
+learnspace-ai-study-web/src/views/CourseLearn.vue
+learnspace-ai-study-web/src/views/mobile/MobileLearnView.vue
+learnspace-ai-study-web/README.md
+```
+
+---
+
+## 七、附录
+
+### 7.1 提交清单速查
 
 **site_cost（45）** — 关键提交
 | commit | 日期 | 主题 |
@@ -1573,7 +2029,7 @@ flowchart LR
 
 **learnspace（45）** — 见 §4.7 时间线
 
-### 6.2 关键文件索引
+### 7.2 关键文件索引
 
 **site_cost**（`D:\idea_project\site_cost`）
 ```
@@ -1582,7 +2038,7 @@ service/SiteStaQueryService.java          974 行  查询中枢，local/remote �
         :117-124  跨库并发查询线程池(固定 4 线程，守护线程，注释说明为何是 4)
         :161-168  CachedResult 缓存条目(数据行 + 未匹配行 + 原始指标 + 过期时间)
         clearCache() 7 处调用：定时入库后、流水线后、3 个回填接口后、设手工部门后
-job/IngestLock.java                       入库互斥锁（**lizhuang 08-10 新增，非本人**）
+job/IngestLock.java                       入库互斥锁（**lizhuang 08-10 新增，非李超**）
         :29-32    为什么用 tryLock 而非 lock（幂等全量重算，排队无意义）
         :34-36    单实例前提，扩多实例需换 shedlock 或数据库行锁
 service/SiteStaIngestService.java         774 行  :287-304 bxqk 按天分摊；:442-593 真实费用有效单价法
@@ -1786,12 +2242,12 @@ src/custom/components/learnspace/learnspace-site-permission-manage.vue  995 行
 src/custom/components/custom-components-register.js            :26,:42 组件注册
 ```
 
-### 6.3 技术提醒与待办
+### 7.3 技术提醒与待办
 
 分析过程中发现以下几处值得处理（均不影响现有功能）：
 
 1. **site_cost 的 `application.yml` 硬编码了生产环境凭证** —— SSO client-secret（:163）与钉钉机器人 webhook access_token（:154）。webhook 虽写了 `${DING_WEBHOOK:...}` 支持环境变量覆盖，但默认值就是真 token；而 README:169 明确要求「不要写死进仓库」，文档与配置实际状态不一致。建议清掉默认值改为纯环境变量注入。
-2. **site_cost 存在 JDK 版本假设不一致** —— pom 声明 `java.version=17` 且相关代码用了 switch 表达式，但 lizhuang 有一笔提交「将 switch 表达式改为传统 switch 语法**兼容 JDK 8 编译环境**」。说明两人构建环境不一致，或 CI 上存在 JDK 8 编译环节，是潜在构建隐患。
+2. **site_cost 存在 JDK 版本假设不一致** —— pom 声明 `java.version=17` 且李超代码用了 switch 表达式，但 lizhuang 有一笔提交「将 switch 表达式改为传统 switch 语法**兼容 JDK 8 编译环境**」。说明两人构建环境不一致，或 CI 上存在 JDK 8 编译环节，是潜在构建隐患。
 3. **learnspace 知识图谱异步化尚未合入 master**（`dev_lc_knowledgegraph` 分支），如需上线需推进合并。
 4. **站点访问授权（08-12 ~ 08-13）尚在 `dev_lc` 分支**，上线需配合执行 SQL 脚本，且脚本的 ID 依赖需人工核对生产环境（脚本头部已用「★ 注意」标出不能照搬，并提供核对查询）。几处可留意：
    - **菜单配置脚本在 08-12 有实质性调整**（菜单从站点管理子 Tab 改为二级菜单、新增 `pe_interface` + `pr_base_category_interface` 接口注册、菜单名改为「站点访问授权」）。若已按首版执行过，需按新脚本重跑，否则会出现「菜单位置不对」或「菜单可见但接口 403」。
@@ -1800,13 +2256,15 @@ src/custom/components/custom-components-register.js            :26,:42 组件注
    - **08-13 起配置页对所有登录用户开放**，安全性完全依赖 `checkWithinOperatorScope` 这一处服务端校验。该方法是权限提升的唯一防线，任何绕过它的新调用路径（如后续新增批量导入、复制授权等接口）都必须显式调用它。建议在 review 清单中固化这一条。
    - 授权表 `site_code` 的脏数据（站点已删除/关闭）**现在有清理入口了** —— `revokeSites` 刻意不校验站点存在性，超管可在页面上看到并移除（`toMissingSiteItem` 会把这类 code 列出）。首版归类为「可接受」的遗留项已闭环。
 
-### 6.4 统计口径说明
+### 7.4 统计口径说明
 
-- 本文档基于 git 提交历史与源码静态阅读，**未运行构建或测试**
+- 本文档基于 git 提交历史与源码静态阅读。2026-08-14 尝试验证 AI Study：后端环境未安装 `mvn`；前端未安装 `node_modules`，且 Corepack 无权写用户目录，因此**未能实际运行构建或测试**，测试覆盖描述来自现有测试源码，不等同于本机通过
 - 提交数含 merge 提交；qhfx-web 的 27 笔中有 2 笔为 merge/stash 记录，discuss-web 有 3 笔为 rebase 产生的重复提交，实际有效改动略少于计数
 - **2026-08-12 更新**：admin-api `cf3307b` + admin-web `8a5d294`「站点管理权限下放」，总数 133 → 135；新增 §4.6 业务线 E、§5.2 主线二扩写、§5.2 新增主线五、附录文件索引与提醒第 4 条
 - **2026-08-13 更新**：admin-api `0d154c71`（跨库事务缺陷修复）+ `c58ffed0`（权限模型重构）、admin-web `e64c5964`（前端重写）+ `02e18bd8` / `3d79f8d6` / `36081c0c`（页面优化），总数 135 → 141。§4.6 扩写为四阶段并新增第二、三阶段两节；§5.2 主线二补两行、主线五补第四次；§5.4-H、§5.5 转折点、§5.6 注释证据与缺口清单、附录索引与提醒第 4 条同步更新。首版设计文档中「配置授权关系只有超管能做」「不依赖菜单 URL 权限」两处表述已被后续提交修正，正文已标注
 - **2026-08-13 补充（缓存与消息专项）**：扫描四个仓库的 Redis / RocketMQ / 进程内缓存使用后新增内容 —— §1.4 技术画像加「缓存」维度、§1.5 新增三项目缓存策略对比、§2.4 新增 site_cost 进程内缓存与 tryLock 两节、§3.2 补 `CbbAiClient` token 缓存机制与 AI 调用缺重试/限流的事实、§4.1 补 learnspace MQ/Redis 体系规模与他的工作边界、§4.4 扩写 Redis 状态机四个设计点、§4.5 补两套缓存清理的背景、§5.3 新增主线五（缓存策略）并将越权防护顺延为主线六。**上述两条历史更新记录中的「主线五」指当时编号（即现在的主线六）**。
-  - 一项需要说明的核实结论：learnspace 的 RocketMQ 体系（45+ topic、双客户端、消费幂等、延迟重试阶梯）**规模很大但不属于他的工作范围** —— 15 笔 rest-api 提交中无一笔改动 MQ 生产者或消费者代码；触及缓存的 5 笔里 4 笔是清缓存，仅知识图谱那笔是自主设计。site_cost 的 `IngestLock`（08-10）是 lizhuang 所写，非他本人，正文已标注区分
-- `D:\idea_project\learnspace`（非 `-rest-api`）仓库中的头部作者列表被截断显示，若其中另有本人提交则本文档有遗漏
-- 未在以下仓库发现本人提交：`learnspace`、`local-util`、`product-cost`、`project-product-sites`、`whaty-cc-plugin-marketplaces`、`whaty-ralph`、`qhfx-office-add-ins`
+  - 一项需要说明的核实结论：learnspace 的 RocketMQ 体系（66 个去重 topic、双客户端、消费幂等、延迟重试阶梯）**规模很大但不属于他的工作范围** —— 15 笔 rest-api 提交中无一笔改动 MQ 生产者或消费者代码；触及缓存的 5 笔里 4 笔是清缓存，仅知识图谱那笔是自主设计。site_cost 的 `IngestLock`（08-10）是 lizhuang 所写，非他本人，正文已标注区分
+- **2026-08-14 更新（LearnSpace AI Study 专项）**：扫描 `learnspace-ai-study-api`、`learnspace-ai-study-service`、`learnspace-ai-study-web` 当前工作树，新增第六节，覆盖三工程边界、端到端学习链路、Prompt 与四类结构化协议、多 Agent 自动委派、SSE/GenUI、存量表复用与知识点独立化、掌握度/任务/XP 闭环、PC/移动端前端架构及测试证据。该项目未按既有 git 作者口径计入 141 次提交，避免把源码规模误当作个人提交统计
+- **2026-08-14 补充（learnspace Redis/MQ 架构专项）**：对 `learnspace-rest-api` 全仓做 Redis / RocketMQ 源码核验，新增 §4.1「Redis 与 MQ 基础设施架构」：补齐 WhatyCache/Redisson 配置与双 cache namespace、key/TTL/主动失效、66 个去重 Topic、4.x/5.x/dedicated Producer 选择、站点订阅缓存、模块消费者幂等、视频学习时钟 + MQ 异步落库、message-pusher 外推与两套重试语义；同时纠正旧文档中的重试阶梯与“各模块独立 Redis db”表述，并明确 `mq_message` 仅在本仓可见写入端、`mq_message_send` 是投递审计而非死信队列
+- `D:\idea_project\learnspace`（非 `-rest-api`）仓库中的头部作者列表被截断显示，若其中另有李超提交则本文档有遗漏
+- 未在以下仓库发现李超提交：`learnspace`、`local-util`、`product-cost`、`project-product-sites`、`whaty-cc-plugin-marketplaces`、`whaty-ralph`、`qhfx-office-add-ins`
