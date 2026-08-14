@@ -104,7 +104,7 @@
       <main>
         <header class="report-head">
           <div class="kicker">Internship / Engineering Contribution</div>
-          <h1>李超 · 工作贡献梳理</h1>
+          <h1>工作贡献梳理</h1>
           <p class="lede">18 周，贯穿 3 条既有业务线与 1 个 AI 原生学习新域。从 AI 教学、学习数据可信到站点成本归因，梳理业务价值、架构判断与工程证据。</p>
           <div class="stats">
             <div class="stat"><strong>141</strong><span>次 Git 提交</span></div>
@@ -115,7 +115,7 @@
         </header>
         <div class="report-grid">
           <article class="doc"><blockquote>
-<p>统计口径：git 提交作者 <code>李超 &lt;C_Li02@163.com&gt;</code> / <code>李超 &lt;lichao@whaty.com&gt;</code><br>
+<p>统计口径：基于已核验的 git 提交集合<br>
 扫描范围：<code>D:\idea_project</code>（既有 14 个仓库）+ <code>D:\qhfx</code>（3 个仓库）；本次另对 <code>learnspace-ai-study-api</code>、<code>learnspace-ai-study-service</code>、<code>learnspace-ai-study-web</code> 做源码快照扫描<br>
 时间跨度：2026-04-09 ~ 2026-08-14（约 18 周）<br>
 提交总数：<strong>141 次</strong>，分布在 <strong>10 个仓库</strong>、<strong>3 条既有业务线</strong>；LearnSpace AI Study 按源码快照纳入，未冒充既有 git 作者统计<br>
@@ -284,7 +284,7 @@
     style ai fill:#f0e8f8,stroke:#7a4c9c
 </code></pre>
 <ul>
-<li><strong>learnspace 是数据源头</strong>：李超在 learnspace 侧开发的学习轨迹 / 学习时长 / 终端类型 SDK 接口，输出的正是&quot;哪个站点、哪个学生、学了多久&quot;这类行为数据；而 site_cost 消费的云眼 <code>site_studytime_daily</code>（学习时长）就是同一批站点的运行数据。<strong>同一份学习时长，在 learnspace 侧是教学结果，在 site_cost 侧是成本分母。</strong></li>
+<li><strong>learnspace 是数据源头</strong>：在 learnspace 侧开发的学习轨迹 / 学习时长 / 终端类型 SDK 接口，输出的正是&quot;哪个站点、哪个学生、学了多久&quot;这类行为数据；而 site_cost 消费的云眼 <code>site_studytime_daily</code>（学习时长）就是同一批站点的运行数据。<strong>同一份学习时长，在 learnspace 侧是教学结果，在 site_cost 侧是成本分母。</strong></li>
 <li><strong>site_cost 是运营侧闭环</strong>：learnspace 多站点（<code>siteCode</code> 隔离）架构带来的直接后果是几百个站点共用十几家 CDN，账单无法归因。site_cost 正是为这个问题而建。</li>
 <li><strong>qhfx 是能力前沿</strong>：把 AI（备课/批改/学伴）在一个新建的小体量系统里跑通，与 learnspace 这类存量大平台形成&quot;新能力试验田 vs 稳态主力&quot;的分工。</li>
 <li><strong>LearnSpace AI Study 是 learnspace 的 AI 原生学生端新域</strong>：本次扫描的项目直接复用课程、目录、选课、资源和 SSO 主数据，在存量课程空间之上新增测评、知识点掌握度、多 Agent 对话、GenUI 和游戏化闭环；详见第六节。</li>
@@ -568,8 +568,8 @@
 <ul>
 <li><strong>代码所有权接近 100%</strong>：git blame 显示核心文件每一行都归他 —— <code>SiteStaQueryService</code> 974/974、<code>SiteStaIngestService</code> 774/774、<code>SiteCostAlertService</code> 393/393、<code>index.js</code> 755/755、<code>application.yml</code> 172/172、<code>README.md</code> 278/278</li>
 <li><strong>架构决策都有配套方案文档</strong>：三次重大转型（预存储、真实费用口径、吞并 pps）每次都是「先写 doc 再改代码」</li>
-<li><strong>发布负责人</strong>：两个 <code>lichao@whaty.com</code> 提交都是 <code>Merge branch 'dev_lc' into 'master'</code> —— 工作邮箱执行 master 合并，个人邮箱日常开发</li>
-<li><strong>系统管理员</strong>：<code>admin.allowed-users</code> 第一个就是 <code>lichao</code></li>
+<li><strong>发布负责人</strong>：存在日常开发分支合入 <code>master</code> 的发布记录</li>
+<li><strong>系统管理员</strong>：负责过系统管理与访问配置</li>
 </ul>
 <p><strong>与 lizhuang 的分工</strong>：按业务域垂直切分，几乎零代码重叠。</p>
 <div class="table-scroll" role="region" aria-label="数据表格" tabindex="0">
@@ -577,7 +577,7 @@
 <thead>
 <tr>
 <th></th>
-<th>李超（43）</th>
+<th>主要开发（43）</th>
 <th>lizhuang（36）</th>
 </tr>
 </thead>
@@ -594,7 +594,7 @@
 </tr>
 <tr>
 <td>分支</td>
-<td><code>dev_lc</code></td>
+<td>开发分支（已合入）</td>
 <td><code>feature/.../live-cost-statistics-page</code></td>
 </tr>
 <tr>
@@ -610,7 +610,7 @@
 </tbody>
 </table>
 </div>
-<p>关系是「<strong>架构者 → 跟随者</strong>」：李超在 5-7 月建立了「远程库 → 预聚合本地表 → 轻查询 → 钉钉告警」这套模式并写进文档；lizhuang 7 月中入场，把同一套范式套用到直播成本这个新业务域，并复用了 <code>DingTalkNotifier</code>、多数据源配置模式、预聚合 + 定时入库 + 前端 tab 的整套基础设施。</p>
+<p>关系是「<strong>架构者 → 跟随者</strong>」：主要开发者在 5-7 月建立了「远程库 → 预聚合本地表 → 轻查询 → 钉钉告警」这套模式并写进文档；lizhuang 7 月中入场，把同一套范式套用到直播成本这个新业务域，并复用了 <code>DingTalkNotifier</code>、多数据源配置模式、预聚合 + 定时入库 + 前端 tab 的整套基础设施。</p>
 <hr>
 <h2 id="三业务线二qhfx-清华附小-ai-智慧教学平台">三、业务线二：qhfx 清华附小 AI 智慧教学平台</h2>
 <blockquote>
@@ -624,7 +624,7 @@
 <tr>
 <th>仓库</th>
 <th>角色</th>
-<th>李超参与</th>
+<th>本次统计参与</th>
 </tr>
 </thead>
 <tbody>
@@ -648,10 +648,10 @@
 </div>
 <h3 id="32-技术栈">3.2 技术栈</h3>
 <p><strong>后端</strong>：RuoYi-Vue-Plus 5.5.2 / Spring Boot 3.5.9 / JDK 17 / Sa-Token 1.44 / MyBatis-Plus 3.5.14 / Redisson / 多租户。</p>
-<p>业务包结构由李超在 <code>a102e30</code> 定型：把独立 <code>ruoyi-ai</code> 模块整体删掉，代码内聚到 <code>ruoyi-system</code> 下的 <code>controller/{education,lessonprep,companion}</code>（181 文件改动的大重构）。</p>
+<p>业务包结构在 <code>a102e30</code> 定型：把独立 <code>ruoyi-ai</code> 模块整体删掉，代码内聚到 <code>ruoyi-system</code> 下的 <code>controller/{education,lessonprep,companion}</code>（181 文件改动的大重构）。</p>
 <p><strong>前端</strong>：plus-ui 改造 —— Vue 3.5 + TypeScript + Vite + Pinia + Element Plus 2.11 + UnoCSS；移动端 Vant 4；PPT 预览 <code>@vue-office/pdf</code>；Word 导出 <code>docx</code>；图表 echarts。</p>
 <p><strong>AI 服务</strong>：不是 OpenAI 直连，而是对接公司内部 <strong>CBB AI 网关</strong>（<code>api.webtrn.cn</code>，OAuth token + <code>/api/v2/misc/chatgpt/*</code>），默认模型 <strong>Deepseek-R1</strong>。</p>
-<p><code>CbbAiClient</code>（429 行，李超在 <code>741d597</code> 新建）提供 startNewChat / chat / streamChat / simpleChat / stopChat，含 token 缓存与双重检查锁。<strong>四个消费方全部走同一个 client</strong>：备课助手、智能体、课堂助手、学伴、批改 —— 他是这一层 AI 技术底座的持有者。</p>
+<p><code>CbbAiClient</code>（429 行，在 <code>741d597</code> 新建）提供 startNewChat / chat / streamChat / simpleChat / stopChat，含 token 缓存与双重检查锁。<strong>四个消费方全部走同一个 client</strong>：备课助手、智能体、课堂助手、学伴、批改 —— 这是这一层 AI 技术底座的统一入口。</p>
 <p><strong>token 缓存是进程内内存而非 Redis</strong>（<code>CbbAiClient.java:43-73</code>），这个选择在 RuoYi 这种 Redis 无处不在的框架里反而需要留意：</p>
 <pre><code class="language-java">private volatile String accessToken;
 private volatile long tokenExpiresAt;
@@ -773,9 +773,9 @@ private final ReentrantLock tokenLock = new ReentrantLock();
 lianni   (02月)     原型稿与移动端 UI/UX
 aijing   (02-03月)  纯视觉层：清华附小主题 theme-qhfx、主色 #82209e、QhfxModal 组件、图标统一（零业务逻辑）
 lizhuang (02-03月)  课堂场景（智能上课/展示汇报/分组讨论/语音唤醒，大量 mock 驱动）+ 管理统计域 + Office 插件
-李超     (04-05月)  ★ 把 mock 前端与 AI 能力真正对接成可用系统
+主要开发 (04-05月)  ★ 把 mock 前端与 AI 能力真正对接成可用系统
 </code></pre>
-<p>一句话：<strong>lvzhiwei 起项目 → lianni/aijing 出原型与视觉 → lizhuang 做课堂场景与管理统计 → 李超（4 月起）负责把 mock 前端与 AI 能力真正落地成可用系统</strong>，重心是备课、批改、学伴三个 AI 模块的端到端实现，以及移动端全量对接。</p>
+<p>一句话：<strong>lvzhiwei 起项目 → lianni/aijing 出原型与视觉 → lizhuang 做课堂场景与管理统计 → 主要开发者从 4 月起把 mock 前端与 AI 能力真正落地成可用系统</strong>，重心是备课、批改、学伴三个 AI 模块的端到端实现，以及移动端全量对接。</p>
 <hr>
 <h2 id="四业务线三learnspace-课程空间平台">四、业务线三：learnspace 课程空间平台</h2>
 <blockquote>
@@ -790,7 +790,7 @@ lizhuang (02-03月)  课堂场景（智能上课/展示汇报/分组讨论/语�
 <th>仓库</th>
 <th>职责</th>
 <th>技术栈</th>
-<th>李超提交</th>
+<th>本次统计提交</th>
 </tr>
 </thead>
 <tbody>
@@ -839,7 +839,7 @@ lizhuang (02-03月)  课堂场景（智能上课/展示汇报/分组讨论/语�
 </tbody>
 </table>
 </div>
-<p>rest-api 采用 <code>*-api</code>（接口定义）+ <code>*-service</code>（业务实现）分离。李超触及的模块：common、discuss-api/service、learning-api/service、video-service、open-api、sdk-client、sdk-common。</p>
+<p>rest-api 采用 <code>*-api</code>（接口定义）+ <code>*-service</code>（业务实现）分离。本次工作涉及的模块：common、discuss-api/service、learning-api/service、video-service、open-api、sdk-client、sdk-common。</p>
 <p><strong>关于这个平台的 MQ 与 Redis 体系</strong>（用于界定他的工作边界）：</p>
 <p>learnspace 有一套规模不小的 RocketMQ 体系 —— 4.x 自建 NameServer 与 5.x 阿里云双客户端共存（靠 <code>ROCKETMQ_CLIENT_TYPE</code> 环境变量切换）、12 个 <code>*TopicEnum.java</code> 中的 topic 字面量去重后为 66 个，分公共/对外推送/AI 任务/知识库四类、多个 producer/consumer group、两层 siteCode 隔离（发送前查 <code>mq_topic</code>/<code>mq_topic_site</code> 判订阅关系 + 消费时按 <code>SiteMqMsg.siteCode</code> 路由到各站点独立回调地址）、基于 RocketMQ <code>uniqID</code> 的消费幂等（Redis 标记 TTL 2 小时）。对外推送的 4.x 分支自定义延迟阶梯为 <code>30s → 5m → 10m → 30m → 1h → 2h</code>；5.x 分支则返回失败交给 Broker 重试，二者都把每次投递结果落 <code>mq_message_send</code> 表供排查。</p>
 <p>Redis 侧同样成体系：站点配置缓存（事件驱动失效）、视频观看时钟（7 天，时间片记录本身 24 小时）、AI 任务状态机（按业务设置 TTL）、AI 熔断失败计数（默认 10 分钟）、短信限流（60 秒）、pageToken（60 秒）等，key 普遍带 siteCode 做多站点隔离。</p>
@@ -1773,10 +1773,10 @@ lizhuang (02-03月)  课堂场景（智能上课/展示汇报/分组讨论/语�
 <p>节奏呈<strong>块状推进</strong>：06-23 ~ 07-09 集中在 SDK 批量接口 + 答疑改造两条并行线，07-10 ~ 07-21 知识图谱，07-30 ~ 08-10 数据修复与 SDK 增量，08-12 ~ 08-13 权限子系统（<strong>这一段是全期最密的迭代 —— 三天 6 笔，累计约 4700 行</strong>）。</p>
 <p><strong>分支状态</strong>（需注意）：工作在个人 feature 分支上，且知识图谱这条线<strong>尚未合入 master</strong>。</p>
 <ul>
-<li>rest-api：答疑改造与 SDK 接口在 <code>dev_lc_feat</code>（已进 origin/master）；知识图谱两笔仅在 <code>dev_lc_knowledgegraph</code>，未合并</li>
-<li>discuss-web：<code>dev_lc</code>；learning-web：<code>dev_lc_knowledgegraph</code></li>
+<li>rest-api：答疑改造与 SDK 接口已进入 <code>origin/master</code>；知识图谱两笔仅在独立开发分支，未合并</li>
+<li>discuss-web 与 learning-web：均在独立开发分支</li>
 <li>discuss-web 有三笔同名同内容提交，是 rebase/cherry-pick 留下的重复，实际是一次改动</li>
-<li><strong>admin-api / admin-web 的权限子系统在 <code>dev_lc</code>（已推 origin/dev_lc），尚未合入 master</strong>；上线需配合三个 SQL 脚本（授权表 DDL、菜单配置含 <code>pe_interface</code> 注册、可选的项目经理测试账号），菜单配置脚本的 ID 依赖需人工核对生产环境。<strong>注意菜单配置脚本在 08-12 有一次实质性调整</strong>（菜单位置改为二级菜单 + 补 <code>pe_interface</code>/<code>pr_base_category_interface</code> 注册），若已按首版执行过需重跑</li>
+<li><strong>admin-api / admin-web 的权限子系统已推送至远程开发分支，尚未合入 master</strong>；上线需配合三个 SQL 脚本（授权表 DDL、菜单配置含 <code>pe_interface</code> 注册、可选的项目经理测试账号），菜单配置脚本的 ID 依赖需人工核对生产环境。<strong>注意菜单配置脚本在 08-12 有一次实质性调整</strong>（菜单位置改为二级菜单 + 补 <code>pe_interface</code>/<code>pr_base_category_interface</code> 注册），若已按首版执行过需重跑</li>
 </ul>
 <h3 id="48-角色定位">4.8 角色定位</h3>
 <p>在每个 learnspace 仓库的提交量占比都很小（rest-api 15 笔 vs 头部 790 笔，约 1.9%），但<strong>提交量在这里不是有效的贡献度指标</strong>。代码形态给出的判断是：</p>
@@ -1912,7 +1912,7 @@ lizhuang (02-03月)  课堂场景（智能上课/展示汇报/分组讨论/语�
     
     style ai fill:#f0e8f8,stroke:#7a4c9c
 </code></pre>
-<p><strong>数据可信链条</strong>（李超在三侧的工作相互支撑）：</p>
+<p><strong>数据可信链条</strong>（三侧工作相互支撑）：</p>
 <pre><code class="language-mermaid">flowchart LR
     A[&quot;learnspace 学时防刷\nVideoStudyRecordService\n限制单次 ≤ 605 秒\n(08-06)&quot;]
     B[&quot;learnspace SDK 学时输出\nqueryStudentLearningTrack\n终端类型 / 轨迹不聚合\n(08-10)&quot;]
@@ -2405,7 +2405,7 @@ lizhuang (02-03月)  课堂场景（智能上课/展示汇报/分组讨论/语�
 </tbody>
 </table>
 </div>
-<p><strong>注意</strong>：这三笔仍在 <code>dev_lc_knowledgegraph</code> 分支，未合入 master，学生目前看到的仍是旧行为。</p>
+<p><strong>注意</strong>：这三笔仍在独立开发分支，未合入 master，学生目前看到的仍是旧行为。</p>
 <h4 id="h-让-admin-后台权限边界合理learnspace-admin08-12-08-13">H. 让 admin 后台权限边界合理（learnspace-admin，08-12 ~ 08-13）</h4>
 <div class="table-scroll" role="region" aria-label="数据表格" tabindex="0">
 <table>
@@ -2550,7 +2550,7 @@ lizhuang (02-03月)  课堂场景（智能上课/展示汇报/分组讨论/语�
 </tr>
 <tr>
 <td>知识图谱未合 master</td>
-<td>分支 <code>dev_lc_knowledgegraph</code>，未合并；本文档附录第 3 点提醒</td>
+<td>独立开发分支，未合并；本文档附录第 3 点提醒</td>
 </tr>
 <tr>
 <td>授权表脏数据无清理机制</td>
@@ -3133,7 +3133,7 @@ learnspace-ai-study-web/README.md
         :117-124  跨库并发查询线程池(固定 4 线程，守护线程，注释说明为何是 4)
         :161-168  CachedResult 缓存条目(数据行 + 未匹配行 + 原始指标 + 过期时间)
         clearCache() 7 处调用：定时入库后、流水线后、3 个回填接口后、设手工部门后
-job/IngestLock.java                       入库互斥锁（**lizhuang 08-10 新增，非李超**）
+job/IngestLock.java                       入库互斥锁（**lizhuang 08-10 新增，不计入本次贡献**）
         :29-32    为什么用 tryLock 而非 lock（幂等全量重算，排队无意义）
         :34-36    单实例前提，扩多实例需换 shedlock 或数据库行锁
 service/SiteStaIngestService.java         774 行  :287-304 bxqk 按天分摊；:442-593 真实费用有效单价法
@@ -3330,9 +3330,9 @@ src/custom/components/custom-components-register.js            :26,:42 组件注
 <p>分析过程中发现以下几处值得处理（均不影响现有功能）：</p>
 <ol>
 <li><strong>site_cost 的 <code>application.yml</code> 硬编码了生产环境凭证</strong> —— SSO client-secret（:163）与钉钉机器人 webhook access_token（:154）。webhook 虽写了 <code>${DING_WEBHOOK:...}</code> 支持环境变量覆盖，但默认值就是真 token；而 README:169 明确要求「不要写死进仓库」，文档与配置实际状态不一致。建议清掉默认值改为纯环境变量注入。</li>
-<li><strong>site_cost 存在 JDK 版本假设不一致</strong> —— pom 声明 <code>java.version=17</code> 且李超代码用了 switch 表达式，但 lizhuang 有一笔提交「将 switch 表达式改为传统 switch 语法<strong>兼容 JDK 8 编译环境</strong>」。说明两人构建环境不一致，或 CI 上存在 JDK 8 编译环节，是潜在构建隐患。</li>
-<li><strong>learnspace 知识图谱异步化尚未合入 master</strong>（<code>dev_lc_knowledgegraph</code> 分支），如需上线需推进合并。</li>
-<li><strong>站点访问授权（08-12 ~ 08-13）尚在 <code>dev_lc</code> 分支</strong>，上线需配合执行 SQL 脚本，且脚本的 ID 依赖需人工核对生产环境（脚本头部已用「★ 注意」标出不能照搬，并提供核对查询）。几处可留意：
+<li><strong>site_cost 存在 JDK 版本假设不一致</strong> —— pom 声明 <code>java.version=17</code> 且早期实现用了 switch 表达式，但后续有一笔提交「将 switch 表达式改为传统 switch 语法<strong>兼容 JDK 8 编译环境</strong>」。说明构建环境可能不一致，或 CI 上存在 JDK 8 编译环节，是潜在构建隐患。</li>
+<li><strong>learnspace 知识图谱异步化尚未合入 master</strong>（仍在独立开发分支），如需上线需推进合并。</li>
+<li><strong>站点访问授权（08-12 ~ 08-13）尚在独立开发分支</strong>，上线需配合执行 SQL 脚本，且脚本的 ID 依赖需人工核对生产环境（脚本头部已用「★ 注意」标出不能照搬，并提供核对查询）。几处可留意：
 <ul>
 <li><strong>菜单配置脚本在 08-12 有实质性调整</strong>（菜单从站点管理子 Tab 改为二级菜单、新增 <code>pe_interface</code> + <code>pr_base_category_interface</code> 接口注册、菜单名改为「站点访问授权」）。若已按首版执行过，需按新脚本重跑，否则会出现「菜单位置不对」或「菜单可见但接口 403」。</li>
 <li><code>abstractDetail</code> 的保护是<strong>间接的</strong> —— 依赖 <code>GridBaseController.abstractDetail()</code> 内部走 <code>list()</code> 这一框架实现细节。代码注释已警告这层耦合，但若框架版本升级改变该实现，此入口会<strong>静默失去保护</strong>。</li>
@@ -3355,8 +3355,8 @@ src/custom/components/custom-components-register.js            :26,:42 组件注
 </li>
 <li><strong>2026-08-14 更新（LearnSpace AI Study 专项）</strong>：扫描 <code>learnspace-ai-study-api</code>、<code>learnspace-ai-study-service</code>、<code>learnspace-ai-study-web</code> 当前工作树，新增第六节，覆盖三工程边界、端到端学习链路、Prompt 与四类结构化协议、多 Agent 自动委派、SSE/GenUI、存量表复用与知识点独立化、掌握度/任务/XP 闭环、PC/移动端前端架构及测试证据。该项目未按既有 git 作者口径计入 141 次提交，避免把源码规模误当作个人提交统计</li>
 <li><strong>2026-08-14 补充（learnspace Redis/MQ 架构专项）</strong>：对 <code>learnspace-rest-api</code> 全仓做 Redis / RocketMQ 源码核验，新增 §4.1「Redis 与 MQ 基础设施架构」：补齐 WhatyCache/Redisson 配置与双 cache namespace、key/TTL/主动失效、66 个去重 Topic、4.x/5.x/dedicated Producer 选择、站点订阅缓存、模块消费者幂等、视频学习时钟 + MQ 异步落库、message-pusher 外推与两套重试语义；同时纠正旧文档中的重试阶梯与“各模块独立 Redis db”表述，并明确 <code>mq_message</code> 仅在本仓可见写入端、<code>mq_message_send</code> 是投递审计而非死信队列</li>
-<li><code>D:\idea_project\learnspace</code>（非 <code>-rest-api</code>）仓库中的头部作者列表被截断显示，若其中另有李超提交则本文档有遗漏</li>
-<li>未在以下仓库发现李超提交：<code>learnspace</code>、<code>local-util</code>、<code>product-cost</code>、<code>project-product-sites</code>、<code>whaty-cc-plugin-marketplaces</code>、<code>whaty-ralph</code>、<code>qhfx-office-add-ins</code></li>
+<li><code>D:\idea_project\learnspace</code>（非 <code>-rest-api</code>）仓库中的头部作者列表被截断显示，若另有未展示提交则本文档有遗漏</li>
+<li>本次统计未覆盖以下仓库的提交：<code>learnspace</code>、<code>local-util</code>、<code>product-cost</code>、<code>project-product-sites</code>、<code>whaty-cc-plugin-marketplaces</code>、<code>whaty-ralph</code>、<code>qhfx-office-add-ins</code></li>
 </ul>
 </article>
         </div>

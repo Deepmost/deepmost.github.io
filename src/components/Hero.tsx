@@ -150,8 +150,8 @@ export default function Hero() {
         style={{ animationDelay: '0.7s' }}
       >
         <p className="text-sm leading-relaxed text-white/80">
-          在 AI、工程与生活之间持续学习和创造。这里记录项目实践、读书与播客笔记，
-          也收纳那些仍在形成的思考。
+          在后端工程与 AI 应用之间持续实践。从知识图谱、CDN 查询到 RAG、Agent 与 FDE，
+          这里记录真实项目里的设计、排查和取舍。
         </p>
       </div>
 
@@ -160,8 +160,8 @@ export default function Hero() {
         style={{ animationDelay: '0.85s' }}
       >
         <p className="text-xs leading-relaxed text-white/80 sm:text-sm">
-          写作是把模糊的念头变清楚，也是为走过的路留下坐标。愿这些关于技术、阅读和生活的记录，
-          也能给你一点启发。
+          也写产品思考、读书播客与生活观察。把模糊的问题拆开，留下可复用的经验，
+          也记录那些让我改变看法的瞬间。
         </p>
         <Link
           to="/blog"

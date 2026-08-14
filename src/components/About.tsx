@@ -4,7 +4,7 @@ import WordsPullUpMultiStyle from './WordsPullUpMultiStyle'
 import { posts } from '../content/posts'
 
 const BODY_TEXT =
-  '过去这段时间，我在实习中做过后端服务、知识图谱、AI Agent 与 CDN 查询系统，也在读书和听播客的间隙记下那些让我改主意的瞬间。写作对我来说不是输出，而是把想法逼到必须说清楚的地方。'
+  '这里记录我在后端与 AI 应用中的真实实践：知识图谱、CDN 查询、多智能体学习平台、RAG 与 Agent 架构，也整理面向 FDE 的学习和项目复盘。技术之外，还有产品思考、读书播客与生活观察。写作对我来说，是把问题想清楚，也把经验沉淀下来。'
 
 interface AnimatedLetterProps {
   char: string
@@ -54,7 +54,7 @@ export default function About() {
               { text: '我是 Deepmost，', className: 'font-normal' },
               { text: 'a curious builder.', className: 'italic font-serif' },
               {
-                text: '写下读书笔记、播客总结与项目复盘。',
+                text: '写下 AI 实践、工程复盘与持续思考。',
                 className: 'font-normal',
                 breakBefore: true,
               },

@@ -171,7 +171,7 @@ const output = `<!doctype html>
       <main>
         <header class="report-head">
           <div class="kicker">Internship / Engineering Contribution</div>
-          <h1>李超 · 工作贡献梳理</h1>
+          <h1>工作贡献梳理</h1>
           <p class="lede">18 周，贯穿 3 条既有业务线与 1 个 AI 原生学习新域。从 AI 教学、学习数据可信到站点成本归因，梳理业务价值、架构判断与工程证据。</p>
           <div class="stats">
             <div class="stat"><strong>141</strong><span>次 Git 提交</span></div>
